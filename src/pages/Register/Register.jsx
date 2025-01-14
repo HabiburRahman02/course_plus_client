@@ -2,33 +2,32 @@ import Lottie from 'lottie-react';
 import lottieImg from '../../assets/lottie/register.json'
 import SocialLogin from '../../components/SocialLogin';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 const Register = () => {
+    const { createUser } = useAuth();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm()
+
+    const onSubmit = (data) => {
+        console.log(data)
+        createUser(data.email, data.password)
+            .then((result) => {
+                // toast.success('Create user successfully')
+                // navigate(location.state || '/')
+                console.log(result);
+            })
+            .catch(error => {
+                // toast.error(error.message);
+                console.log(error);
+            })
+    }
 
 
-    // const handleRegister = e => {
-    //     e.preventDefault();
-    //     const form = e.target
-    //     const formData = new FormData(form);
-    //     const data = Object.fromEntries(formData.entries());
-    //     const password = data.password;
-    //     if (password.length < 6) {
-    //         return toast.error('Password must be 6 character or longer')
-    //     }
-
-    //     const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-    //     if (!regex.test(password)) {
-    //         return toast.error('Password must be One uppercase & one lowercase')
-    //     }
-
-    //     createUser(data.email, data.password)
-    //         .then(() => {
-    //             toast.success('Create user successfully')
-    //             navigate(location.state || '/')
-    //         })
-    //         .catch(error => {
-    //             toast.error(error.message);
-    //         })
-    // }
     return (
         <div>
             <div className="md:flex gap-12 min-h-screen bg-white dark:text-black shadow-lg rounded-lg overflow-hidden items-center max-w-5xl mx-auto px-6 py-12">
@@ -47,43 +46,47 @@ const Register = () => {
                         Please register your account
                     </p>
 
-                    <form className="mt-6">
+                    <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
                         {/* Email Input */}
                         <div className="form-control mb-4">
                             <label className="label">
                                 <span className="label-text font-medium">Name</span>
                             </label>
                             <input
+                                {...register("name", { required: true })}
                                 name='name'
                                 type="text"
                                 placeholder="Enter your name"
                                 className="input input-bordered w-full"
 
                             />
+                            {errors.name && <span className='text-red-500'>Name field is required</span>}
                         </div>
                         <div className="form-control mb-4">
                             <label className="label">
                                 <span className="label-text font-medium">Photo Url</span>
                             </label>
                             <input
+                                {...register("photoUrl", { required: true })}
                                 name='photoUrl'
                                 type="text"
                                 placeholder="Enter your photo url"
                                 className="input input-bordered w-full"
-
                             />
+                            {errors.photoUrl && <span className='text-red-500'>PhotoUrl field is required</span>}
                         </div>
                         <div className="form-control mb-4">
                             <label className="label">
                                 <span className="label-text font-medium">Email</span>
                             </label>
                             <input
+                                {...register("email", { required: true })}
                                 name='email'
                                 type="email"
                                 placeholder="Enter your email"
                                 className="input input-bordered w-full"
-                                required
                             />
+                            {errors.email && <span className='text-red-500'>Email field is required</span>}
                         </div>
 
                         {/* Password Input */}
@@ -92,12 +95,13 @@ const Register = () => {
                                 <span className="label-text font-medium">Password</span>
                             </label>
                             <input
+                                {...register("password", { required: true })}
                                 name='password'
                                 type="password"
                                 placeholder="Enter your password"
                                 className="input input-bordered w-full"
-                                required
                             />
+                            {errors.password && <span className='text-red-500'>Password field is required</span>}
                         </div>
 
                         {/* Login Button */}
