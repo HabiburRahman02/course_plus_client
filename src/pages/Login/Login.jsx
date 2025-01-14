@@ -2,14 +2,35 @@ import Lottie from 'lottie-react';
 import lottieImg from '../../assets/lottie/login.json'
 import { Link } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin';
+import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
 
-    const handleLogin = e => {
+    const { loginUser } = useAuth();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm()
 
+    const onSubmit = (data) => {
+        console.log(data)
 
+        loginUser(data.email, data.password)
+            .then(() => {
+                // console.log(result);
+                toast.success('Login user successfully')
+                // navigate(location.state || '/')
+            })
+            .catch(error => {
+                // console.log(error);
+                toast.error(error.message);
+            })
     }
+
     return (
         <div>
             <div className="md:flex gap-12 min-h-screen bg-white dark:text-black shadow-lg rounded-lg overflow-hidden items-center max-w-5xl mx-auto px-6 py-12">
@@ -27,19 +48,20 @@ const Login = () => {
                         Please login to your account
                     </p>
 
-                    <form onSubmit={handleLogin} className="mt-6">
+                    <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
                         {/* Email Input */}
                         <div className="form-control mb-4">
                             <label className="label">
                                 <span className="label-text font-medium">Email</span>
                             </label>
                             <input
+                                {...register("email", { required: true })}
                                 name='email'
                                 type="email"
                                 placeholder="Enter your email"
                                 className="input input-bordered w-full"
-                                required
                             />
+                            {errors.email?.type === 'required' && <span className='text-red-500'>Password field is required</span>}
                         </div>
 
                         {/* Password Input */}
@@ -48,12 +70,13 @@ const Login = () => {
                                 <span className="label-text font-medium">Password</span>
                             </label>
                             <input
+                                {...register("password", { required: true })}
                                 name='password'
                                 type="password"
                                 placeholder="Enter your password"
                                 className="input input-bordered w-full"
-                                required
                             />
+                            {errors.password?.type === 'required' && <span className='text-red-500'>Password field is required</span>}
                         </div>
 
                         {/* Login Button */}
