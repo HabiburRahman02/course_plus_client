@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
+
 const Register = () => {
     const { createUser } = useAuth();
     const {
@@ -15,15 +16,19 @@ const Register = () => {
 
     const onSubmit = (data) => {
         console.log(data)
+        if (data.password.length < 6) {
+            return toast.error('Password must be 6 character or longer')
+        }
+
         createUser(data.email, data.password)
             .then((result) => {
-                // toast.success('Create user successfully')
-                // navigate(location.state || '/')
                 console.log(result);
+                toast.success('User created successfully')
+                // navigate(location.state || '/')
             })
             .catch(error => {
-                // toast.error(error.message);
                 console.log(error);
+                toast.error(error.message);
             })
     }
 
@@ -95,13 +100,15 @@ const Register = () => {
                                 <span className="label-text font-medium">Password</span>
                             </label>
                             <input
-                                {...register("password", { required: true })}
+                                {...register("password", { required: true, minLength: 6, maxLength: 10 })}
                                 name='password'
                                 type="password"
                                 placeholder="Enter your password"
                                 className="input input-bordered w-full"
                             />
-                            {errors.password && <span className='text-red-500'>Password field is required</span>}
+                            {errors.password?.type === 'required' && <span className='text-red-500'>Password field is required</span>}
+                            {errors.password?.type === 'minLength' && <span className='text-red-500'>Min 6 length must be added</span>}
+                            {errors.password?.type === 'maxLength' && <span className='text-red-500'>Max 10 length added</span>}
                         </div>
 
                         {/* Login Button */}
