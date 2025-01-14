@@ -74,8 +74,8 @@ const Navbar = () => {
                     <div>
                         {!user &&
                             <>
-                                <Link to='/signin'>
-                                    <button className="bg-white border-[2px] hover:border-white duration-500 border-transparent hover:border-[2px] hover:bg-transparent hover:text-white text-black font-medium px-8 py-2 rounded-full">Sign In</button>
+                                <Link to='/login'>
+                                    <button className="bg-white border-[2px] hover:border-white duration-500 border-transparent hover:border-[2px] hover:bg-transparent hover:text-white text-black font-medium px-8 py-2 rounded-full">Login</button>
                                 </Link>
                             </>
                         }

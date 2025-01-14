@@ -8,12 +8,14 @@ import person5 from '../../assets/partners/partner5.png'
 
 import Marquee from 'react-fast-marquee';
 import Partner from './Partner'
+import Heading from '../../components/Heading'
 
 const Partners = () => {
     return (
         <div className='py-20'>
             <div>
                 <div>
+                    <Heading title='Our all partners here'></Heading>
                     <Marquee pauseOnHover={true}>
                         <div className=" flex gap-6 py-10 pl-6">
                             <Partner img={person1} ></Partner>
