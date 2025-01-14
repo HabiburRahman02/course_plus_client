@@ -1,20 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/logo/logo.png'
+import useAuth from "../../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 
 const Navbar = () => {
-    // const { user, logOut } = useAuth();
+    const { user, logOut } = useAuth();
 
-    // const handleLogout = () => {
-    //     logOut()
-    //         .then(() => {
-    //             toast.success('Logout user successfully')
-    //         })
-    //         .catch(error => {
-    //             toast.error(error.message);
-    //         })
-    // }
-    const user = false;
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                toast.success('Logout user successfully')
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    }
 
     return (
         <nav className="dark:text-white dark:bg-gray-700 bg-cyan-700 text-white fixed z-50 top-0 w-full ">
@@ -94,17 +95,15 @@ const Navbar = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 dark:text-black text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow">
 
-                                <NavLink to='/createAssignments' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Create Assignments</NavLink>
+                                <li>{user?.displayName}</li>
 
                                 <NavLink to='/mySubmitted' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>My Assignments</NavLink>
 
                                 <NavLink to='/pendingAssignments' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Pending Assignments</NavLink>
 
                                 <button
-                                    // onClick={handleLogout}
-                                    className="bg-customGreen hover:bg-[#03816e] text-white my-3 px-8 py-2 text-center rounded-full inline">Logout</button>
-
-
+                                    onClick={handleLogout}
+                                    className="bg-cyan-700 hover:bg-[#03816e] text-white my-3 px-8 py-2 text-center rounded-full inline">Logout</button>
                             </ul>
                         </div>
                     }
