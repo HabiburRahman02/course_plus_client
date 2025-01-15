@@ -14,10 +14,10 @@ const PopularCourses = () => {
             })
     }, [axiosPublic])
     return (
-        <div>
+        <div className="mb-20">
             <Heading title='Popular Courses'> </Heading>
             <div>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 my-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {
                         courses?.map(course => <CourseCard
                             key={course._id}

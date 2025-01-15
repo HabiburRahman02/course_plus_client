@@ -3,7 +3,7 @@ import Heading from "../../components/Heading";
 
 const WhyChooseUs = () => {
     return (
-        <section className="py-20 text-gray-800 dark:text-white">
+        <section className="mb-20">
             <div >
                 <Heading title='Why Choose Us?'></Heading>
                 {/* Content Section */}

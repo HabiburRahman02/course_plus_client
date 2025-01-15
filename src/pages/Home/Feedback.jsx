@@ -17,8 +17,7 @@ const Feedback = () => {
     }, [axiosPublic])
 
     return (
-        <div id='feedback' className='pt-12 pb-24 max-w-[1400px] mx-auto px-6
-         md:px-0'>
+        <div className='mb-20 px-6 md:px-0'>
             <Heading
                 title="Teachers Feedback"
             ></Heading>

@@ -5,7 +5,7 @@ import { Fade, Zoom } from 'react-awesome-reveal';
 import Heading from '../../components/Heading';
 const Faq = () => {
     return (
-        <div className="-20">
+        <div className="">
             <Heading
                 title='You Have Any Question?'
             ></Heading>
@@ -56,13 +56,6 @@ const Faq = () => {
                                 </div>
                             </div>
                         </Fade>
-                        {/* <div className="collapse collapse-plus join-item py-3">
-                            <input type="radio" name="my-accordion-4" defaultChecked />
-                            <div className="collapse-title text-xl md:text-2xl font-semibold"> What challenges do students face in online education?</div>
-                            <div className="collapse-content text-lg">
-                                <p>Students may face challenges such as lack of motivation, technical issues, difficulty in accessing reliable internet, and feeling disconnected from peers and instructors. Some students may also struggle with self-discipline and managing their time effectively in an online environment.</p>
-                            </div>
-                        </div> */}
 
                     </div>
                 </div>

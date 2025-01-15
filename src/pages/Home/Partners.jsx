@@ -12,12 +12,12 @@ import Heading from '../../components/Heading'
 
 const Partners = () => {
     return (
-        <div className='py-20'>
+        <div className='my-20'>
             <div>
                 <div>
                     <Heading title='Our all partners here'></Heading>
                     <Marquee pauseOnHover={true}>
-                        <div className=" flex gap-6 py-10 pl-6">
+                        <div className=" flex gap-6  pl-6">
                             <Partner img={person1} ></Partner>
                             <Partner img={person2} ></Partner>
                             <Partner img={person3} ></Partner>

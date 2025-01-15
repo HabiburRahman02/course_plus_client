@@ -7,9 +7,9 @@ const StatsSection = () => {
     const totalEnrollments = 5000;
 
     return (
-        <div>
+        <div className="mb-20">
             <Heading title='Our CoursePlus Stats'></Heading>
-            <div className="flex flex-col md:flex-row justify-between items-center gap-20 p-8 md:p-0">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-20 px-8 md:p-0">
                 {/* Left side - Stats */}
                 <div className="w-full md:w-1/2 lg:w-1/2 mb-8 text-center">
                     <div className="bg-white shadow-lg p-6 rounded-lg">
