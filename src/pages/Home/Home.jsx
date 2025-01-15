@@ -4,6 +4,7 @@ import Feedback from "./Feedback";
 import Partners from "./Partners";
 import PopularCourses from "./PopularCourses";
 import StatsSection from "./StatsSection";
+import WhyChooseUs from "./WhyChooseUs";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <Feedback></Feedback>
             <StatsSection></StatsSection>
             <Faq></Faq>
+            <WhyChooseUs></WhyChooseUs>
         </div>
     );
 };

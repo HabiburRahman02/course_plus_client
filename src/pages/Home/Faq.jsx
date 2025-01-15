@@ -5,14 +5,14 @@ import { Fade, Zoom } from 'react-awesome-reveal';
 import Heading from '../../components/Heading';
 const Faq = () => {
     return (
-        <div className="pb-20">
+        <div className="-20">
             <Heading
                 title='You Have Any Question?'
             ></Heading>
             <div className="lg:flex items-center gap-6">
                 <div className="lg:w-1/2">
                     <div className='h-full w-full'>
-                        <Zoom duration={1000}>
+                        <Zoom duration={1000} triggerOnce>
                             <Lottie animationData={faqLottie} loop={true} />
                         </Zoom>
                     </div>
