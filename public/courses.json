@@ -1,6 +1,5 @@
 [
   {
-    "_id": 1,
     "title": "Introduction to React",
     "teacherName": "John Doe",
     "image": "https://img.freepik.com/premium-vector/software-coding-concept-java-code-digital-text-digital-program-code-screen_630277-77.jpg?semt=ais_hybrid",
@@ -10,7 +9,6 @@
     "status": "approved"
   },
   {
-    "_id": 2,
     "title": "Advanced Node.js",
     "teacherName": "Jane Smith",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP3cA236_zNHr9NEvC72Fhw6r_1FzOjLtf0g&s",
@@ -20,7 +18,6 @@
     "status": "pending"
   },
   {
-    "_id": 3,
     "title": "UI/UX Design Fundamentals",
     "teacherName": "Emily White",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVodPugNUQWf7NicsjJsAZeG0Cbi0_Tpuvig&s",
@@ -30,7 +27,6 @@
     "status": "approved"
   },
   {
-    "_id": 4,
     "title": "Python for Data Science",
     "teacherName": "Michael Brown",
     "image": "https://img.freepik.com/free-photo/programming-background-collage_23-2149900968.jpg",
@@ -40,7 +36,6 @@
     "status": "approved"
   },
   {
-    "_id": 5,
     "title": "Full-Stack Web Development",
     "teacherName": "Sarah Johnson",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-xPCdtiRYwM3IRdBWrbilDnF6bxVo2Swj4A&s",
@@ -50,7 +45,6 @@
     "status": "pending"
   },
   {
-    "_id": 6,
     "title": "Machine Learning Basics",
     "teacherName": "David Lee",
     "image": "https://img.freepik.com/free-vector/technology-abstract-background_53876-124425.jpg",

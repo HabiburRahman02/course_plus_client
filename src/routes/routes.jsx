@@ -17,7 +17,7 @@ const router = createBrowserRouter([
             {
                 path: 'allCourses',
                 element: <AllCourses></AllCourses>,
-                loader: () => fetch('courses.json')
+                loader: () => fetch('http://localhost:5000/courses')
             },
         ]
     },
