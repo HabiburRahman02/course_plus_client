@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
-    const { title, teacherName, image, price, description, totalEnrollment } = course;
+    const { _id, title, teacherName, image, price, description, totalEnrollment } = course;
 
     return (
         <div className="card w-full bg-base-100 shadow-xl">
@@ -22,7 +23,9 @@ const CourseCard = ({ course }) => {
                     </span>
                 </div>
                 <div className="card-actions mt-2">
-                    <button className="btn btn-primary w-full">Enroll</button>
+                    <Link to={`/courseDetails/${_id}`} className="w-full">
+                        <button className="btn btn-primary w-full">Enroll</button>
+                    </Link>
                 </div>
             </div>
         </div>

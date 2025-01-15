@@ -3,7 +3,7 @@ import Heading from "../../components/Heading";
 
 const WhyChooseUs = () => {
     return (
-        <section className="mb-20">
+        <section className="mb-20 mx-8 lg:mx-0">
             <div >
                 <Heading title='Why Choose Us?'></Heading>
                 {/* Content Section */}
@@ -86,7 +86,7 @@ const WhyChooseUs = () => {
                         <img
                             src="https://images.pexels.com/photos/5676744/pexels-photo-5676744.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="Why Choose Us"
-                            className="rounded-lg shadow-lg transform h-[400px] object-cover transition-transform duration-500 w-full"
+                            className="rounded-lg shadow-lg transform lg:h-[400px] h-auto object-cover transition-transform duration-500 w-full"
                         />
                     </div>
                 </div>

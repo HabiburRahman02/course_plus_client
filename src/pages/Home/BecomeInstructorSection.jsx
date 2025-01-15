@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 const BecomeInstructorSection = () => {
     return (
-        <div className="flex flex-col md:flex-row gap-6 mb-20">
+        <div className="flex flex-col md:flex-row gap-6 mb-20 mx-8 lg:mx-0">
             {/* Left side - Image */}
             <div className="w-full md:w-1/2 lg:w-1/2 mb-8">
                 <img
                     src="https://www.a2nacademy.com/a2n_assets/img/become-instructor/become-a-instructor.png"
                     alt="Become an Instructor"
-                    className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+                    className="w-full h-auto lg:h-[400px] object-cover rounded-lg shadow-lg"
                 />
             </div>
 
