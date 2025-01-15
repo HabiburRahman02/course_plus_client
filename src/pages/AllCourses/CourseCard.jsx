@@ -11,7 +11,7 @@ const CourseCard = ({ course }) => {
                     className="w-full h-48 object-cover"
                 />
             </figure>
-            <div className="card-body">
+            <div className="p-5">
                 <h2 className="card-title text-xl font-bold">{title}</h2>
                 <p className="text-sm text-gray-500">By: {teacherName}</p>
                 <p className="text-gray-700 mt-2">{description}</p>

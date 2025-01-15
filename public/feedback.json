@@ -1,0 +1,39 @@
+[
+    {
+      "feedbackText": "This class helped me understand React better. Highly recommended!",
+      "teacherName": "John Doe",
+      "teacherImage": "https://i.ibb.co/VtsCc0x/user-1.jpg",
+      "classTitle": "Introduction to React"
+    },
+    {
+      "feedbackText": "Node.js basics were very well explained. The best class I've taken!",
+      "teacherName": "Jane Smith",
+      "teacherImage": "https://i.ibb.co/0ypg14g/user-2.jpg",
+      "classTitle": "Advanced Node.js"
+    },
+    {
+      "feedbackText": "UI/UX Design Fundamentals covered a lot of useful topics for aspiring designers!",
+      "teacherName": "Emily White",
+      "teacherImage": "https://i.ibb.co/QDSb3JQ/user-4.jpg",
+      "classTitle": "UI/UX Design Fundamentals"
+    },
+    {
+      "feedbackText": "Python for Data Science was an excellent course to start learning Python.",
+      "teacherName": "Michael Brown",
+      "teacherImage": "https://i.ibb.co/gFz8JWy/user-5.jpg",
+      "classTitle": "Python for Data Science"
+    },
+    {
+      "feedbackText": "Machine Learning Basics gave me a strong foundation to explore further topics.",
+      "teacherName": "David Lee",
+      "teacherImage": "https://i.ibb.co/m4VnT6s/user-6.jpg",
+      "classTitle": "Machine Learning Basics"
+    },
+    {
+      "feedbackText": "Full-Stack Web Development using MERN stack is a must for anyone serious about web development!",
+      "teacherName": "Sarah Johnson",
+      "teacherImage": "https://i.ibb.co/VtsCc0x/user-1.jpg",
+      "classTitle": "Full-Stack Web Development"
+    }
+  ]
+  
