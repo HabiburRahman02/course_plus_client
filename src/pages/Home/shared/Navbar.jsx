@@ -97,9 +97,7 @@ const Navbar = () => {
 
                                 <li>{user?.displayName}</li>
 
-                                <NavLink to='/mySubmitted' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>My Assignments</NavLink>
-
-                                <NavLink to='/pendingAssignments' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Pending Assignments</NavLink>
+                                <NavLink to='/dashboard' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Dashboard</NavLink>
 
                                 <button
                                     onClick={handleLogout}

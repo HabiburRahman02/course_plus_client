@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 
 const Register = () => {
-    const { createUser } = useAuth();
+    const { createUser, updateUserProfile } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     const {
@@ -25,8 +25,16 @@ const Register = () => {
         createUser(data.email, data.password)
             .then((result) => {
                 console.log(result);
-                toast.success('User created successfully')
-                navigate(location.state || '/')
+                // update profile
+                updateUserProfile(data.name, data.photoUrl)
+                    .then(() => {
+                        // console.log('update user profile');
+                        toast.success('User created successfully')
+                        navigate(location.state || '/')
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
             })
             .catch(error => {
                 console.log(error);
