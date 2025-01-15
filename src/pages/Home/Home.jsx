@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import BecomeInstructorSection from "./BecomeInstructorSection";
 import Faq from "./Faq";
 import Feedback from "./Feedback";
 import Partners from "./Partners";
@@ -14,6 +15,7 @@ const Home = () => {
             <PopularCourses></PopularCourses>
             <Feedback></Feedback>
             <StatsSection></StatsSection>
+            <BecomeInstructorSection></BecomeInstructorSection>
             <Faq></Faq>
             <WhyChooseUs></WhyChooseUs>
         </div>

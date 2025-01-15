@@ -23,6 +23,9 @@ const Partners = () => {
                             <Partner img={person3} ></Partner>
                             <Partner img={person4} ></Partner>
                             <Partner img={person5} ></Partner>
+                            <Partner img={person1} ></Partner>
+                            <Partner img={person2} ></Partner>
+                            <Partner img={person3} ></Partner>
                         </div>
                     </Marquee>
                 </div>

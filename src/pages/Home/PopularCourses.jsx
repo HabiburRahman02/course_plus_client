@@ -17,7 +17,7 @@ const PopularCourses = () => {
         <div className="mb-20">
             <Heading title='Popular Courses'> </Heading>
             <div>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 px-8 lg:px-0">
                     {
                         courses?.map(course => <CourseCard
                             key={course._id}
