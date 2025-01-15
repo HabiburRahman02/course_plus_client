@@ -1,0 +1,62 @@
+[
+  {
+    "_id": 1,
+    "title": "Introduction to React",
+    "teacherName": "John Doe",
+    "image": "https://img.freepik.com/premium-vector/software-coding-concept-java-code-digital-text-digital-program-code-screen_630277-77.jpg?semt=ais_hybrid",
+    "price": 50,
+    "description": "Learn the basics of React and build interactive UIs.",
+    "totalEnrollment": 25,
+    "status": "approved"
+  },
+  {
+    "_id": 2,
+    "title": "Advanced Node.js",
+    "teacherName": "Jane Smith",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP3cA236_zNHr9NEvC72Fhw6r_1FzOjLtf0g&s",
+    "price": 100,
+    "description": "Deep dive into Node.js for building robust backend systems.",
+    "totalEnrollment": 18,
+    "status": "pending"
+  },
+  {
+    "_id": 3,
+    "title": "UI/UX Design Fundamentals",
+    "teacherName": "Emily White",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVodPugNUQWf7NicsjJsAZeG0Cbi0_Tpuvig&s",
+    "price": 75,
+    "description": "Learn the principles of UI/UX design with hands-on projects.",
+    "totalEnrollment": 30,
+    "status": "approved"
+  },
+  {
+    "_id": 4,
+    "title": "Python for Data Science",
+    "teacherName": "Michael Brown",
+    "image": "https://img.freepik.com/free-photo/programming-background-collage_23-2149900968.jpg",
+    "price": 120,
+    "description": "Master Python to unlock the potential of data science.",
+    "totalEnrollment": 40,
+    "status": "approved"
+  },
+  {
+    "_id": 5,
+    "title": "Full-Stack Web Development",
+    "teacherName": "Sarah Johnson",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-xPCdtiRYwM3IRdBWrbilDnF6bxVo2Swj4A&s",
+    "price": 150,
+    "description": "Learn full-stack web development using MERN stack.",
+    "totalEnrollment": 35,
+    "status": "pending"
+  },
+  {
+    "_id": 6,
+    "title": "Machine Learning Basics",
+    "teacherName": "David Lee",
+    "image": "https://img.freepik.com/free-vector/technology-abstract-background_53876-124425.jpg",
+    "price": 200,
+    "description": "Introduction to machine learning algorithms and their applications.",
+    "totalEnrollment": 20,
+    "status": "approved"
+  }
+]

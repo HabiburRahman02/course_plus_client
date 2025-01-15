@@ -46,7 +46,7 @@ const Navbar = () => {
                                     <NavLink to='/' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='allClasses' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>All Classes</NavLink>
+                                    <NavLink to='allCourses' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>All Courses</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='teachOnCoursePlus ' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Teach on CoursePlus</NavLink>
@@ -66,7 +66,7 @@ const Navbar = () => {
                             <NavLink to='/' className={({ isActive }) => ` duration-500 hidden md:block ${isActive && 'border-b-2'}`}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to='allClasses' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>All Classes</NavLink>
+                            <NavLink to='allCourses' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>All Courses</NavLink>
                         </li>
                         <li>
                             <NavLink to='teachOnCoursePlus' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>Teach On CoursePlus</NavLink>
