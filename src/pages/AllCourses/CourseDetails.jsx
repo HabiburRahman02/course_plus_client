@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
     const course = useLoaderData();
-    console.log(course);
+
     return (
         <div className="mx-3 md:mx-0 py-12">
             <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md dark:text-black">
@@ -19,7 +19,7 @@ const CourseDetails = () => {
                     <p><strong>Price:</strong> ${course.price}</p>
                 </div>
 
-                <Link >
+                <Link to={`/payment/${course._id}`}>
                     <button className="font-semibold bg-cyan-700 hover:bg-[#03816e] text-white px-8 py-2 rounded-full">Pay and enroll</button>
                 </Link>
             </div>
