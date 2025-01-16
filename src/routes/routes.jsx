@@ -11,6 +11,7 @@ import TeachOnCoursePlus from "../pages/TeachOnCoursePlus/TeachOnCoursePlus";
 import DashboardLayout from "../layout/DashboardLayout";
 import AddCourse from "../pages/Dasboard/Teacher/AddCourse";
 import MyCourse from "../pages/Dasboard/Teacher/MyCourse";
+import UpdateCourse from "../pages/Dasboard/Teacher/UpdateCourse";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,8 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
+
+            // teacher routes
             {
                 path: 'addCourse',
                 element: <PrivateRoute><AddCourse></AddCourse></PrivateRoute>
@@ -60,6 +63,11 @@ const router = createBrowserRouter([
             {
                 path: 'myCourse',
                 element: <PrivateRoute><MyCourse></MyCourse></PrivateRoute>
+            },
+            {
+                path: 'updateCourse/:id',
+                element: <PrivateRoute><UpdateCourse></UpdateCourse></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
         ]
     }

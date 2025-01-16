@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
 
 const MyCourseCard = ({ course }) => {
-    const { name, image, description, email, price, status, title } = course
+    const { name, image, description, email, price, status, title, _id } = course || {}
     return (
-        <div className="card card-compact bg-base-100 w-96 shadow-xl">
+        <div className="card w-full card-compact bg-base-100 shadow-xl">
             <figure>
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                    className="h-[200px] w-full object-cover"
+                    src={image}
                     alt="Shoes" />
             </figure>
             <div className="card-body">
@@ -16,7 +18,9 @@ const MyCourseCard = ({ course }) => {
                 <p><span className="font-semibold">Price:</span> ${price}</p>
                 <p><span className="font-semibold">Status:</span> {status}</p>
                 <div className="card-actions justify-between">
-                    <button className="btn btn-primary">Update</button>
+                    <Link to={`/dashboard/updateCourse/${_id}`}>
+                        <button className="btn btn-primary">Update</button>
+                    </Link>
                     <button className="btn btn-secondary">Delete</button>
                 </div>
                 {

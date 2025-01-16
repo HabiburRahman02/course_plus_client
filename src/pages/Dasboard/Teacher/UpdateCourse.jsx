@@ -1,13 +1,14 @@
 import { useForm } from 'react-hook-form';
-import useAuth from '../../../hooks/useAuth';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 
-const AddCourse = () => {
-    const { user } = useAuth();
+const UpdateCourse = () => {
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
+    const course = useLoaderData();
+    const { name, image, description, email, price, status, title, _id } = course || {}
+
 
     const {
         register,
@@ -16,23 +17,24 @@ const AddCourse = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        const addCourse = {
+        const updateCourse = {
             ...data,
-            status: 'pending'
+            status
         }
-        axiosSecure.post('/courses', addCourse)
+        axiosSecure.patch(`/updateCourse/${_id}`, updateCourse)
             .then(res => {
-                if (res.data.insertedId) {
-                    toast.success('Course added successfully')
+                if (res.data.modifiedCount > 0) {
+                    toast.success('Update course successfully')
                     navigate('/dashboard/myCourse')
                 }
+                console.log(res.data);
             })
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center py-12">
             <div className="max-w-4xl w-full bg-white shadow-xl border border-gray-200 dark:text-black rounded-lg overflow-hidden p-8">
-                <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Add a new course</h2>
+                <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Update course</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Title */}
@@ -41,6 +43,7 @@ const AddCourse = () => {
                             <input
                                 {...register('title', { required: 'Title is required' })}
                                 type="text"
+                                defaultValue={title}
                                 placeholder="Enter class title"
                                 className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
@@ -56,6 +59,7 @@ const AddCourse = () => {
                                     valueAsNumber: true,
                                 })}
                                 type="number"
+                                defaultValue={price}
                                 placeholder="Enter class price"
                                 className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
@@ -68,6 +72,7 @@ const AddCourse = () => {
                             <input
                                 {...register('image', { required: 'Image URL is required' })}
                                 type="url"
+                                defaultValue={image}
                                 placeholder="Enter image URL"
                                 className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
                             />
@@ -81,7 +86,7 @@ const AddCourse = () => {
                                 {...register('name')}
                                 type="text"
                                 readOnly
-                                value={user?.displayName}
+                                defaultValue={name}
                                 className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
@@ -93,7 +98,7 @@ const AddCourse = () => {
                                 {...register('email')}
                                 type="email"
                                 readOnly
-                                value={user?.email}
+                                defaultValue={email}
                                 className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
@@ -104,6 +109,7 @@ const AddCourse = () => {
                         <label className="block text-sm font-medium text-gray-700">Description</label>
                         <textarea
                             {...register('description', { required: 'Description is required' })}
+                            defaultValue={description}
                             placeholder="Enter class description"
                             className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 textarea textarea-bordered w-full mt-1"
                         />
@@ -116,7 +122,7 @@ const AddCourse = () => {
                             type="submit"
                             className="font-semibold bg-cyan-700 hover:bg-[#03816e] text-white px-8 py-4 rounded-lg w-full"
                         >
-                            Add Course
+                            Update Course
                         </button>
                     </div>
                 </form>
@@ -125,4 +131,4 @@ const AddCourse = () => {
     );
 };
 
-export default AddCourse;
+export default UpdateCourse;
