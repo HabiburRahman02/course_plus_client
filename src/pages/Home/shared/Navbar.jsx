@@ -95,7 +95,7 @@ const Navbar = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 dark:text-black text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow">
 
-                                <li>{user?.displayName}</li>
+                                <li>Name: {user?.displayName}</li>
 
                                 <NavLink to='/dashboard' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Dashboard</NavLink>
 

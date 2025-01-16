@@ -94,9 +94,9 @@ const TeachOnCoursePlus = () => {
                     <div className="text-center mt-8">
                         <button
                             type="submit"
-                            className="font-semibold bg-customGreen hover:bg-[#03816e] text-white px-8 py-4 rounded-lg w-full"
+                            className="font-semibold bg-cyan-700 hover:bg-cyan-800 text-white px-8 py-4 rounded-lg w-full"
                         >
-                            Submit Profile
+                            Submit For Review
                         </button>
                     </div>
                 </form>

@@ -8,6 +8,8 @@ import CourseDetails from "../pages/AllCourses/CourseDetails";
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../pages/AllCourses/Payment";
 import TeachOnCoursePlus from "../pages/TeachOnCoursePlus/TeachOnCoursePlus";
+import DashboardLayout from "../layout/DashboardLayout";
+import AddCourse from "../pages/Dasboard/Teacher/AddCourse";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +48,16 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
     },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: 'addCourse',
+                element: <PrivateRoute><AddCourse></AddCourse></PrivateRoute>
+            }
+        ]
+    }
 ]);
 
 export default router
