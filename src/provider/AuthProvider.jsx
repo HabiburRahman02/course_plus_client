@@ -43,6 +43,17 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log('currentUser', currentUser);
+
+            // const userInfo = {
+            //     name: currentUser?.displayName,
+            //     image: currentUser?.photoURL,
+            //     role: 'student'
+            // }
+            // axiosPublic.post(`/users/${currentUser?.email}`, userInfo)
+            //     .then(res => {
+            //         console.log(res.data);
+            //     })
+
             setLoading(false);
         })
         return () => {

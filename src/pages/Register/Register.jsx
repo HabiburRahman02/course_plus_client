@@ -5,11 +5,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Register = () => {
     const { createUser, updateUserProfile } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic()
     const {
         register,
         handleSubmit,
@@ -29,8 +31,18 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoUrl)
                     .then(() => {
                         // console.log('update user profile');
-                        toast.success('User created successfully')
-                        navigate(location.state || '/')
+                        const userInfo = {
+                            name: data?.name,
+                            email: data.email,
+                            image: data?.photoUrl,
+                            role: 'student'
+                        }
+                        axiosPublic.post(`/users/${data?.email}`, userInfo)
+                            .then(res => {
+                                console.log('form register page', res.data);
+                                toast.success('User created successfully')
+                                navigate(location.state || '/')
+                            })
                     })
                     .catch(error => {
                         console.log(error);

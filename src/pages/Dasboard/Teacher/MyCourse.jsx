@@ -8,13 +8,6 @@ const MyCourse = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
-    // useEffect(() => {
-    //     axiosSecure.get(`/course/${user?.email}`)
-    //         .then(res => {
-    //             console.log(res.data);
-    //             setMyCourse(res.data);
-    //         })
-    // }, [axiosSecure, user?.email])
     const { data: myCourse = [], refetch } = useQuery({
         queryKey: ['course', user?.email],
         queryFn: async () => {
@@ -35,6 +28,7 @@ const MyCourse = () => {
                     ></MyCourseCard>)
                 }
             </div>
+
         </div>
     );
 };
