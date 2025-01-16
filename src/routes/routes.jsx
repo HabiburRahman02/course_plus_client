@@ -10,6 +10,7 @@ import Payment from "../pages/AllCourses/Payment";
 import TeachOnCoursePlus from "../pages/TeachOnCoursePlus/TeachOnCoursePlus";
 import DashboardLayout from "../layout/DashboardLayout";
 import AddCourse from "../pages/Dasboard/Teacher/AddCourse";
+import MyCourse from "../pages/Dasboard/Teacher/MyCourse";
 
 const router = createBrowserRouter([
     {
@@ -55,7 +56,11 @@ const router = createBrowserRouter([
             {
                 path: 'addCourse',
                 element: <PrivateRoute><AddCourse></AddCourse></PrivateRoute>
-            }
+            },
+            {
+                path: 'myCourse',
+                element: <PrivateRoute><MyCourse></MyCourse></PrivateRoute>
+            },
         ]
     }
 ]);

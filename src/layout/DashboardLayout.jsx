@@ -46,6 +46,12 @@ const DashboardLayout = () => {
                                 </NavLink>
                             </li>
                             <li>
+                                <NavLink to='/dashboard/myCourse' className='flex items-center gap-2'>
+                                    <FaChampagneGlasses></FaChampagneGlasses>
+                                    My Course
+                                </NavLink>
+                            </li>
+                            <li>
                                 <NavLink to='/dashboard/profile' className='flex items-center gap-2'>
                                     <FaPersonRifle></FaPersonRifle>
                                     Profile
