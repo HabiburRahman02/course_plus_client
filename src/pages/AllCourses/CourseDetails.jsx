@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const CourseDetails = () => {
     const course = useLoaderData();
+    console.log(course);
 
     return (
         <div className="mx-3 md:mx-0 py-12">
@@ -14,7 +15,8 @@ const CourseDetails = () => {
                 </div>
 
                 <div className="mb-4">
-                    <p><strong>Created By:</strong> {course.teacherName}</p>
+                    <p><strong>Created By:</strong> {course.name}</p>
+                    <p><strong>Email:</strong> {course.email}</p>
                     <p><strong> Total Enrolled:</strong> {course.totalEnrollment}</p>
                     <p><strong>Price:</strong> ${course.price}</p>
                 </div>

@@ -1,11 +1,11 @@
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaUsers } from "react-icons/fa";
 import { FaChampagneGlasses, FaPersonRifle } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
     const student = false;
-    const teacher = true;
-    const admin = false;
+    const teacher = false;
+    const admin = true;
     return (
         <div className="flex">
             <div className="w-1/5 bg-cyan-700 p-10 text-white min-h-screen">
@@ -68,9 +68,9 @@ const DashboardLayout = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/myEnrollClass' className='flex items-center gap-2'>
-                                    <FaChampagneGlasses></FaChampagneGlasses>
-                                    ADmin
+                                <NavLink to='/dashboard/users' className='flex items-center gap-2'>
+                                    <FaUsers></FaUsers>
+                                    Users
                                 </NavLink>
                             </li>
                             <li>
@@ -84,7 +84,7 @@ const DashboardLayout = () => {
                 </ul>
 
             </div>
-            <div className="w-4/5">
+            <div className="w-4/5 px-10">
                 {/* dynamic content */}
 
                 <Outlet></Outlet>

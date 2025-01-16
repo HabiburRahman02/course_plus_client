@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
-    const { _id, title, teacherName, image, price, description, totalEnrollment } = course;
+    const { _id, title, name, image, price, description, totalEnrollment } = course;
 
     return (
         <div className="card w-full bg-base-100 shadow-xl">
@@ -14,7 +14,7 @@ const CourseCard = ({ course }) => {
             </figure>
             <div className="p-5">
                 <h2 className="card-title text-xl font-bold">{title}</h2>
-                <p className="text-sm text-gray-500">By: {teacherName}</p>
+                <p className="text-sm text-gray-500">Create By: {name}</p>
                 <p className="text-gray-700 mt-2">{description}</p>
                 <div className="mt-2 flex justify-between items-center">
                     <span className="text-lg font-semibold text-green-600">${price}</span>
