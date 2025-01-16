@@ -7,7 +7,7 @@ const DashboardLayout = () => {
     const teacher = true;
     const admin = false;
     return (
-        <div className="flex gap-10">
+        <div className="flex">
             <div className="w-1/5 bg-cyan-700 p-10 text-white min-h-screen">
                 {/* side nav */}
                 <ul className="space-y-2">

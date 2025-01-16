@@ -15,7 +15,7 @@ const MyCourse = () => {
     //             setMyCourse(res.data);
     //         })
     // }, [axiosSecure, user?.email])
-    const { data: myCourse, refetch } = useQuery({
+    const { data: myCourse = [], refetch } = useQuery({
         queryKey: ['course', user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/course/${user?.email}`)
@@ -25,7 +25,7 @@ const MyCourse = () => {
 
     return (
         <div>
-            <Heading title={`My all courses here: ${myCourse.length}`}></Heading>
+            <Heading title={`My all courses here: ${myCourse?.length}`}></Heading>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
                 {
                     myCourse?.map(course => <MyCourseCard

@@ -18,6 +18,7 @@ const AddCourse = () => {
     const onSubmit = (data) => {
         const addCourse = {
             ...data,
+            totalEnrollment: 0,
             status: 'pending'
         }
         axiosSecure.post('/courses', addCourse)

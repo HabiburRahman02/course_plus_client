@@ -30,6 +30,8 @@ const MyCourseCard = ({ course, refetch }) => {
         });
     }
 
+
+
     return (
         <div className="card w-full card-compact bg-base-100 shadow-xl">
             <figure>
@@ -52,7 +54,11 @@ const MyCourseCard = ({ course, refetch }) => {
                     <button onClick={() => handleDelete(_id)} className="btn btn-secondary">Delete</button>
                 </div>
                 {
-                    status === 'approved' ? <button className="btn btn-outline mt-3">See Progress</button> : <button disabled className="btn btn-outline mt-3">See Progress</button>
+                    status === 'approved' ?
+                        <Link to={`/dashboard/SeeProgressDetails/${_id}`}>
+                            <button className="btn btn-outline w-full mt-3">See Progress</button>
+                        </Link>
+                        : <button disabled className="btn btn-outline mt-3">See Progress</button>
                 }
             </div>
         </div>

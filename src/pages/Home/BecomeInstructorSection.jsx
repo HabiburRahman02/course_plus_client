@@ -2,6 +2,7 @@ import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const BecomeInstructorSection = () => {
+
     return (
         <div className="flex flex-col md:flex-row gap-6 mb-20 mx-8 lg:mx-0">
             {/* Left side - Image */}

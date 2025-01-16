@@ -12,6 +12,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import AddCourse from "../pages/Dasboard/Teacher/AddCourse";
 import MyCourse from "../pages/Dasboard/Teacher/MyCourse";
 import UpdateCourse from "../pages/Dasboard/Teacher/UpdateCourse";
+import SeeProgressDetails from "../pages/Dasboard/Teacher/SeeProgressDetails";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,11 @@ const router = createBrowserRouter([
                 path: 'updateCourse/:id',
                 element: <PrivateRoute><UpdateCourse></UpdateCourse></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
+            },
+            {
+                path: 'seeProgressDetails/:id',
+                element: <PrivateRoute><SeeProgressDetails></SeeProgressDetails></PrivateRoute>,
+                // loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
         ]
     }
