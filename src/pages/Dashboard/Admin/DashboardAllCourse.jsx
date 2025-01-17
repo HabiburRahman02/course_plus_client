@@ -5,7 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const DashboardAllCourse = () => {
-    const [courses, loading, refetch] = useAllCourse();
+    const [courses, , refetch] = useAllCourse();
     const axiosSecure = useAxiosSecure();
 
     const handleApproved = async (id) => {
@@ -20,7 +20,7 @@ const DashboardAllCourse = () => {
         console.log(id);
         const res = await axiosSecure.patch(`/allCoursesRejected/${id}`)
         if (res.data.modifiedCount > 0) {
-            toast.success('Rejected this course!!')
+            toast.error('Rejected this course!!')
             refetch();
         }
     }
