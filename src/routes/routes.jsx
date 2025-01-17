@@ -17,6 +17,7 @@ import Users from "../pages/Dashboard/Admin/Users";
 import AdminRoute from "./AdminRoute";
 import DashboardAllCourse from "../pages/Dashboard/Admin/DashboardAllCourse";
 import Profile from "../pages/Dashboard/Common/Profile";
+import TeacherRequest from "../pages/Dashboard/Admin/TeacherRequest";
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
 
             // teacher routes
             {
+                path: 'teacherRequest',
+                element: <TeacherRequest></TeacherRequest>
+            },
+            {
                 path: 'addCourse',
                 element: <AddCourse></AddCourse>
             },
@@ -91,7 +96,6 @@ const router = createBrowserRouter([
             {
                 path: 'seeProgressDetails/:id',
                 element: <SeeProgressDetails></SeeProgressDetails>,
-                // loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
         ]
     }

@@ -1,4 +1,4 @@
-import { FaHome, FaList, FaUsers } from "react-icons/fa";
+import { FaChalkboardTeacher, FaHome, FaList, FaUsers } from "react-icons/fa";
 import { FaChampagneGlasses, FaPersonRifle } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
@@ -53,6 +53,12 @@ const DashboardLayout = () => {
                     }
                     {
                         isAdmin && <>
+                            <li>
+                                <NavLink to='/dashboard/teacherRequest' className='flex items-center gap-2'>
+                                    <FaChalkboardTeacher></FaChalkboardTeacher>
+                                    Teacher Request
+                                </NavLink>
+                            </li>
                             <li>
                                 <NavLink to='/dashboard/users' className='flex items-center gap-2'>
                                     <FaUsers></FaUsers>
