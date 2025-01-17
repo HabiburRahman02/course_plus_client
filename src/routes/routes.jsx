@@ -9,11 +9,13 @@ import PrivateRoute from "./PrivateRoute";
 import Payment from "../pages/AllCourses/Payment";
 import TeachOnCoursePlus from "../pages/TeachOnCoursePlus/TeachOnCoursePlus";
 import DashboardLayout from "../layout/DashboardLayout";
-import AddCourse from "../pages/Dasboard/Teacher/AddCourse";
-import MyCourse from "../pages/Dasboard/Teacher/MyCourse";
-import UpdateCourse from "../pages/Dasboard/Teacher/UpdateCourse";
-import SeeProgressDetails from "../pages/Dasboard/Teacher/SeeProgressDetails";
-import Users from "../pages/Dasboard/Admin/Users";
+import AddCourse from "../pages/Dashboard/Teacher/AddCourse";
+import MyCourse from "../pages/Dashboard/Teacher/MyCourse";
+import UpdateCourse from "../pages/Dashboard/Teacher/UpdateCourse";
+import SeeProgressDetails from "../pages/Dashboard/Teacher/SeeProgressDetails";
+import Users from "../pages/Dashboard/Admin/Users";
+import AdminRoute from "./AdminRoute";
+import DashboardAllCourse from "../pages/Dashboard/Admin/DashboardAllCourse";
 
 const router = createBrowserRouter([
     {
@@ -59,26 +61,30 @@ const router = createBrowserRouter([
             // admin only routes
             {
                 path: 'users',
-                element: <Users></Users>
+                element: <AdminRoute><Users></Users></AdminRoute>
+            },
+            {
+                path: 'dashboardAllCourse',
+                element: <AdminRoute><DashboardAllCourse></DashboardAllCourse></AdminRoute>
             },
 
             // teacher routes
             {
                 path: 'addCourse',
-                element: <PrivateRoute><AddCourse></AddCourse></PrivateRoute>
+                element: <AddCourse></AddCourse>
             },
             {
                 path: 'myCourse',
-                element: <PrivateRoute><MyCourse></MyCourse></PrivateRoute>
+                element: <MyCourse></MyCourse>
             },
             {
                 path: 'updateCourse/:id',
-                element: <PrivateRoute><UpdateCourse></UpdateCourse></PrivateRoute>,
+                element: <UpdateCourse></UpdateCourse>,
                 loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
             {
                 path: 'seeProgressDetails/:id',
-                element: <PrivateRoute><SeeProgressDetails></SeeProgressDetails></PrivateRoute>,
+                element: <SeeProgressDetails></SeeProgressDetails>,
                 // loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
         ]

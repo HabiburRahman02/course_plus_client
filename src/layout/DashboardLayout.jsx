@@ -1,23 +1,27 @@
-import { FaHome, FaUsers } from "react-icons/fa";
+import { FaHome, FaList, FaUsers } from "react-icons/fa";
 import { FaChampagneGlasses, FaPersonRifle } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 
 const DashboardLayout = () => {
     const student = false;
     const teacher = false;
-    const admin = true;
+    const [isAdmin] = useAdmin();
+    // const isAdmin = false
+
+
     return (
         <div className="flex">
             <div className="w-1/5 bg-cyan-700 p-10 text-white min-h-screen">
                 {/* side nav */}
                 <ul className="space-y-2">
+                    <li>
+                        <NavLink to='/' className='flex items-center gap-2'>
+                            <FaHome></FaHome>
+                            Home
+                        </NavLink>
+                    </li>
                     {student && <>
-                        <li>
-                            <NavLink to='/' className='flex items-center gap-2'>
-                                <FaHome></FaHome>
-                                Home
-                            </NavLink>
-                        </li>
                         <li>
                             <NavLink to='/dashboard/myEnrollClass' className='flex items-center gap-2'>
                                 <FaChampagneGlasses></FaChampagneGlasses>
@@ -34,12 +38,6 @@ const DashboardLayout = () => {
                     {
                         teacher && <>
                             <li>
-                                <NavLink to='/' className='flex items-center gap-2'>
-                                    <FaHome></FaHome>
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li>
                                 <NavLink to='/dashboard/addCourse' className='flex items-center gap-2'>
                                     <FaChampagneGlasses></FaChampagneGlasses>
                                     Add Course
@@ -51,22 +49,10 @@ const DashboardLayout = () => {
                                     My Course
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to='/dashboard/profile' className='flex items-center gap-2'>
-                                    <FaPersonRifle></FaPersonRifle>
-                                    Profile
-                                </NavLink>
-                            </li>
                         </>
                     }
                     {
-                        admin && <>
-                            <li>
-                                <NavLink to='/' className='flex items-center gap-2'>
-                                    <FaHome></FaHome>
-                                    Home
-                                </NavLink>
-                            </li>
+                        isAdmin && <>
                             <li>
                                 <NavLink to='/dashboard/users' className='flex items-center gap-2'>
                                     <FaUsers></FaUsers>
@@ -74,13 +60,20 @@ const DashboardLayout = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/profile' className='flex items-center gap-2'>
-                                    <FaPersonRifle></FaPersonRifle>
-                                    admin
+                                <NavLink to="/dashboard/dashboardAllCourse" className='flex items-center gap-2'>
+                                    <FaList></FaList>
+                                    All Course
                                 </NavLink>
                             </li>
+
                         </>
                     }
+                    <li>
+                        <NavLink to='/dashboard/profile' className='flex items-center gap-2'>
+                            <FaPersonRifle></FaPersonRifle>
+                            Profile
+                        </NavLink>
+                    </li>
                 </ul>
 
             </div>

@@ -11,8 +11,8 @@ const useAxiosSecure = () => {
     // Add a request interceptor
     axiosInstance.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token');
-        console.log('from interceptors', token);
-        config.headers.authorization = `Bearer ${token}`
+        // console.log('from interceptors', token);
+        config.headers.authorization = `Bearer ${token}`;
         return config;
     }, function (error) {
         // Do something with request error
@@ -23,8 +23,8 @@ const useAxiosSecure = () => {
     axiosInstance.interceptors.response.use(function (response) {
         return response;
     }, function (error) {
-        console.log('error from axios interceptors', error);
-        if (error.status === 401 || error.status == 403) {
+        // console.log('error from axios interceptors', error);
+        if (error.response?.status === 401 || error.response?.status == 403) {
             logOut()
                 .then(() => {
                     toast.success('Logout user successfully')
