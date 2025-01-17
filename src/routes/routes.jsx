@@ -16,6 +16,7 @@ import SeeProgressDetails from "../pages/Dashboard/Teacher/SeeProgressDetails";
 import Users from "../pages/Dashboard/Admin/Users";
 import AdminRoute from "./AdminRoute";
 import DashboardAllCourse from "../pages/Dashboard/Admin/DashboardAllCourse";
+import Profile from "../pages/Dashboard/Common/Profile";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
+            // common routes
+            {
+                path: 'profile',
+                element: <Profile></Profile>
+            },
             // admin only routes
             {
                 path: 'users',

@@ -75,7 +75,11 @@ const DashboardAllCourse = () => {
                                         className="btn btn-accent">Reject</button>
                                 </td>
                                 <td>
-                                    <button className="btn btn-primary">Progress</button>
+                                    {
+                                        course.status === 'approved' ? <button
+                                            className="btn btn-primary">Progress</button> : <button
+                                                className="btn btn-primary" disabled>Progress</button>
+                                    }
                                 </td>
 
                             </tr>
