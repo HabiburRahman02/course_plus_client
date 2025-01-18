@@ -80,9 +80,20 @@ const CheckoutForm = ({ course }) => {
         else {
             console.log('Confirm Payment intent', paymentIntent);
             if (paymentIntent.status === 'succeeded') {
-                toast.success('Successfully payment')
-                setTransId(paymentIntent.id)
-                navigate('/dashboard/myEnrollCourse')
+                const enrollInfo = {
+                    title: course.title,
+                    name: course.name,
+                    image: course.image,
+                    email: user?.email
+                }
+                axiosSecure.post(`/myEnrollCourse`, enrollInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            toast.success('Successfully payment')
+                            setTransId(paymentIntent.id)
+                            navigate('/dashboard/myEnrollCourse')
+                        }
+                    })
             }
         }
 
