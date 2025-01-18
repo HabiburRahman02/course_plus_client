@@ -1,22 +1,23 @@
-import { useLoaderData } from "react-router-dom";
-import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { useLoaderData } from "react-router-dom";
 import Heading from "../../components/Heading";
+import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
-// TODO: added pk
-const stripePromise = loadStripe(import.meta.env.STRIPE_PUBLISHED_KEY)
 
+// TODO: added pk
+const stripePromise = loadStripe(import.meta.env.VITE_stripe_published_key)
 const Payment = () => {
     const course = useLoaderData();
     const totalPrice = course.price
-    console.log('payment data', totalPrice);
+    // console.log('payment data', totalPrice);
+
     return (
         <div>
-            <Heading title='Please Payment'></Heading>
+            <div className="pt-8"><Heading title='Please Payment'></Heading></div>
             <div>
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm></CheckoutForm>
+                    <CheckoutForm totalPrice={totalPrice}></CheckoutForm>
                 </Elements>
             </div>
         </div>

@@ -23,15 +23,16 @@ const Users = () => {
     }
     return (
         <div>
-            <Heading title='Users'></Heading>
+            <Heading title={`Total users - ${users?.length}`}></Heading>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Image</th>
                             <th>Name</th>
+                            <th>Image</th>
+                            <th>Email</th>
                             <th>Role</th>
                         </tr>
                     </thead>
@@ -39,18 +40,14 @@ const Users = () => {
                         {
                             users.map((user, i) => <tr key={user._id}>
                                 <th>{i + 1}</th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src={user.image}
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
                                 <td>{user.name}</td>
+                                <td>
+                                    <img
+                                        src={user.image}
+                                        className="h-12 w-12 object-cover rounded-2xl"
+                                        alt="Avatar Tailwind CSS Component" />
+                                </td>
+                                <td>{user.email}</td>
                                 <td>
                                     {user.role === 'admin' ? 'Admin already' : <button
                                         onClick={() => handleMakeAdmin(user)}

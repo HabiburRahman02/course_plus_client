@@ -1,28 +1,21 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import useAuth from "../../hooks/useAuth";
 
-const CheckoutForm = () => {
-    const [error, setError] = useState('');
-    const [clientSecret, setClientSecret] = useState('');
-    const { user } = useAuth();
-    const [transId, setTransId] = useState('');
+const CheckoutForm = ({ totalPrice }) => {
+    const [error, setError] = useState('')
+    const [clientSecret, setClientSecret] = useState('')
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
 
-    console.log(stripe, clientSecret);
-    // useEffect(() => {
-    //     if (totalPrice > 0) {
-    //         axiosSecure.post('/create-payment-intent', { price: totalPrice })
-    //             .then(res => {
-    //                 console.log(res.data.clientSecret)
-    //                 setClientSecret(res.data.clientSecret)
-    //             })
-    //     }
-    // }, [axiosSecure, totalPrice])
+    useEffect(() => {
+        axiosSecure.post('/create-payment-intent', { price: totalPrice })
+            .then(res => {
+                console.log(res.data.clientSecret);
+                setClientSecret(res.data.clientSecret)
+            })
+    }, [axiosSecure, totalPrice])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,68 +25,24 @@ const CheckoutForm = () => {
         }
 
         const card = elements.getElement(CardElement);
+
         if (card === null) {
-            return
+            return;
         }
 
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
-            card
+            card,
         });
 
         if (error) {
-            console.log('Error', error);
             setError(error.message)
-        }
-        else {
-            console.log('Payment Method', paymentMethod);
+            console.log('error', error);
+        } else {
             setError('')
+            console.log('PaymentMethod', paymentMethod);
         }
 
-        // confirm payment
-        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: card,
-                billing_details: {
-                    email: user?.email || 'anonymous',
-                    name: user?.displayName || 'anonymous'
-                }
-            }
-        })
-
-        if (confirmError) {
-            console.log('Confirm Error', confirmError);
-            if (confirmError) {
-                setError(confirmError.message)
-            }
-        }
-        else {
-            console.log('Payment Intent', paymentIntent);
-            if (paymentIntent.status === 'succeeded') {
-                setTransId(paymentIntent.id);
-
-                // save the payment in the database
-                const payment = {
-                    email: user?.email,
-                    price: totalPrice,
-                    transId: paymentIntent.id,
-                    date: new Date(), //convert utc date
-                    cartIds: cart.map(item => item._id),
-                    foodItemIds: cart.map(item => item.food_id),
-                    status: 'pending'
-                }
-                axiosSecure.post('/payments', payment)
-                    .then(res => {
-                        console.log('payment save', res.data);
-                        if (res.data.paymentResult.insertedId) {
-                            Swal.fire('Payment success')
-                            refetch();
-                        }
-                    })
-
-
-            }
-        }
 
     }
 
@@ -115,13 +64,13 @@ const CheckoutForm = () => {
                     },
                 }}
             />
-            {/* disabled={!stripe || !clientSecret} */}
 
-            <button className="btn btn-secondary btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret}>
-                Pay
+            <button
+                disabled={!stripe || !clientSecret}
+                className="btn btn-secondary btn-sm mt-4" type="submit" >
+                Pay Now
             </button>
             {error && <p className="text-red-500">{error}</p>}
-            {transId && <p className="text-green-500">Trans Id: {transId}</p>}
         </form>
     );
 };

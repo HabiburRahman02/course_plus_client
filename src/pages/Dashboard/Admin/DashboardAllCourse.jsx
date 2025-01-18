@@ -27,7 +27,7 @@ const DashboardAllCourse = () => {
 
     return (
         <div>
-            <Heading title='All courses here'></Heading>
+            <Heading title={`All courses request - ${courses?.length}`}></Heading>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}

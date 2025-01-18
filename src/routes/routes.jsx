@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
             {
                 path: 'teachOnCoursePlus',

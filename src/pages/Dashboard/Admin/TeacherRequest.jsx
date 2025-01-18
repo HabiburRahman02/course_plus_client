@@ -25,7 +25,7 @@ const TeacherRequest = () => {
     }
     return (
         <div>
-            <Heading title='All courses here'></Heading>
+            <Heading title={`Total teacher request - ${teachers?.length}`}></Heading>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}
