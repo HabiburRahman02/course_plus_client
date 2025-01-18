@@ -18,6 +18,7 @@ import AdminRoute from "./AdminRoute";
 import DashboardAllCourse from "../pages/Dashboard/Admin/DashboardAllCourse";
 import Profile from "../pages/Dashboard/Common/Profile";
 import TeacherRequest from "../pages/Dashboard/Admin/TeacherRequest";
+import MyEnrollCourse from "../pages/Dashboard/Student/MyEnrollCourse";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,13 @@ const router = createBrowserRouter([
                 path: 'profile',
                 element: <Profile></Profile>
             },
+
+            // student routes
+            {
+                path: 'myEnrollCourse',
+                element: <MyEnrollCourse></MyEnrollCourse>
+            },
+
             // admin only routes
             {
                 path: 'users',

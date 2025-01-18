@@ -12,7 +12,7 @@ const DashboardLayout = () => {
 
     return (
         <div className="flex">
-            <div className="w-1/5 bg-cyan-700 p-10 text-white min-h-screen">
+            <div className="w-1/6 bg-cyan-700 p-10 text-white min-h-screen">
                 {/* side nav */}
                 <ul className="space-y-3">
                     <li>
@@ -77,7 +77,7 @@ const DashboardLayout = () => {
                 </ul>
 
             </div>
-            <div className="w-4/5 p-10">
+            <div className="w-5/6 p-10">
                 {/* dynamic content */}
 
                 <Outlet></Outlet>

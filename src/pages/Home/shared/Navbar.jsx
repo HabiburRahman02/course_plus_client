@@ -43,13 +43,13 @@ const Navbar = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content dark:text-black text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow bg-white">
                                 <li>
-                                    <NavLink to='/' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Home</NavLink>
+                                    <NavLink to='/' className={({ isActive }) => `hover:text-cyan-700 duration-500  ${isActive && 'text-cyan-700'}`}>Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='allCourses' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>All Courses</NavLink>
+                                    <NavLink to='allCourses' className={({ isActive }) => `hover:text-cyan-700 duration-500 ${isActive && 'text-cyan-700'}`}>All Courses</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to='teachOnCoursePlus ' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Teach on CoursePlus</NavLink>
+                                    <NavLink to='teachOnCoursePlus' className={({ isActive }) => `hover:text-cyan-700 duration-500 ${isActive && 'text-cyan-700'}`}>Teach on CoursePlus</NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -63,13 +63,13 @@ const Navbar = () => {
                 <div className="flex-none gap-2">
                     <ul className="flex items-center gap-2 md:gap-6 font-medium ">
                         <li>
-                            <NavLink to='/' className={({ isActive }) => ` duration-500 hidden md:block ${isActive && 'border-b-2'}`}>Home</NavLink>
+                            <NavLink to='/' className={({ isActive }) => ` duration-500 hidden md:block hover:text-orange-200 ${isActive && ' text-orange-200'}`}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to='allCourses' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>All Courses</NavLink>
+                            <NavLink to='allCourses' className={({ isActive }) => ` hidden md:block duration-500 hover:text-orange-200 ${isActive && ' text-orange-200'}`}>All Courses</NavLink>
                         </li>
                         <li>
-                            <NavLink to='teachOnCoursePlus' className={({ isActive }) => ` hidden md:block duration-500 ${isActive && 'border-b-2'}`}>Teach On CoursePlus</NavLink>
+                            <NavLink to='teachOnCoursePlus' className={({ isActive }) => ` hidden md:block duration-500 hover:text-orange-200 ${isActive && ' text-orange-200'}`}>Teach On CoursePlus</NavLink>
                         </li>
                     </ul>
                     <div>

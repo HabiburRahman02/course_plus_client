@@ -1,25 +1,33 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-const CheckoutForm = ({ totalPrice }) => {
+const CheckoutForm = ({ course }) => {
     const [error, setError] = useState('')
     const [clientSecret, setClientSecret] = useState('')
     const [transId, setTransId] = useState('')
+    console.log('clientSecret', clientSecret);
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
+    const navigate = useNavigate();
+    const totalPrice = course.price;
+    console.log('course', course);
 
     useEffect(() => {
-        axiosSecure.post('/create-payment-intent', { price: totalPrice })
-            .then(res => {
-                console.log(res.data.clientSecret);
-                setClientSecret(res.data.clientSecret)
-            })
+        if (totalPrice > 0) {
+            axiosSecure.post('/create-payment-intent', { price: totalPrice })
+                .then(res => {
+                    console.log(res.data.clientSecret);
+                    setClientSecret(res.data.clientSecret)
+                })
+        }
     }, [axiosSecure, totalPrice])
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -41,11 +49,19 @@ const CheckoutForm = ({ totalPrice }) => {
 
         if (error) {
             setError(error.message)
+            toast.error(error.message)
             console.log('error', error);
         } else {
             setError('')
             console.log('PaymentMethod', paymentMethod);
         }
+
+        if (!clientSecret) {
+            setError('Client secret is not available.');
+            toast.error('Client secret is not available.');
+            return;
+        }
+
         // confirm payment
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -66,38 +82,42 @@ const CheckoutForm = ({ totalPrice }) => {
             if (paymentIntent.status === 'succeeded') {
                 toast.success('Successfully payment')
                 setTransId(paymentIntent.id)
+                navigate('/dashboard/myEnrollCourse')
             }
         }
 
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <CardElement
-                options={{
-                    style: {
-                        base: {
-                            fontSize: '16px',
-                            color: '#424770',
-                            '::placeholder': {
-                                color: '#aab7c4',
+        <div className="max-w-3xl mx-auto">
+            <form onSubmit={handleSubmit}>
+                <CardElement
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: '16px',
+                                color: '#424770',
+                                backgroundColor: 'white',
+                                '::placeholder': {
+                                    color: '#aab7c4',
+                                },
+                            },
+                            invalid: {
+                                color: '#9e2146',
                             },
                         },
-                        invalid: {
-                            color: '#9e2146',
-                        },
-                    },
-                }}
-            />
+                    }}
+                />
 
-            <button
-                disabled={!stripe || !clientSecret}
-                className="btn btn-secondary btn-sm my-4" type="submit" >
-                Pay Now
-            </button>
-            {error && <p> Error: <span className="text-red-600">{error}</span></p>}
-            {transId && <p> TransId: <span className="text-green-600">{transId}</span></p>}
-        </form>
+                <button
+                    disabled={!stripe || !clientSecret}
+                    className="btn btn-secondary btn-sm my-4" type="submit" >
+                    Pay Now
+                </button>
+                {error && <p> Error: <span className="text-red-600">{error}</span></p>}
+                {transId && <p> TransId: <span className="text-green-600">{transId}</span></p>}
+            </form>
+        </div>
     );
 };
 
