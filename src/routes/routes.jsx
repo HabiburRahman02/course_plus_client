@@ -109,6 +109,7 @@ const router = createBrowserRouter([
             {
                 path: 'seeProgressDetails/:id',
                 element: <SeeProgressDetails></SeeProgressDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
             },
         ]
     }

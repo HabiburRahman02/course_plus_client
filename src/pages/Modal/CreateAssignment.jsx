@@ -2,10 +2,14 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import { useParams } from "react-router-dom";
 
-const CreateAssignment = () => {
+
+const CreateAssignment = ({ refetch }) => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
+    const { id } = useParams();
+
 
     const {
         register,
@@ -22,13 +26,16 @@ const CreateAssignment = () => {
         }
         const assignmentInfo = {
             ...data,
-            email: user?.email
+            email: user?.email,
+            submissionCount: 0,
+            courseId: id
         }
 
         const res = await axiosSecure.post('/assignments', assignmentInfo)
         if (res.data.insertedId) {
             reset()
             toast.success('Create a assignment')
+            refetch()
         }
     };
 
