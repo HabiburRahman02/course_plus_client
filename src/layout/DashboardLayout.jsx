@@ -1,13 +1,17 @@
 import { FaChalkboardTeacher, FaHome, FaList, FaUserCircle, FaUsers } from "react-icons/fa";
-import { FaChampagneGlasses, FaPersonRifle } from "react-icons/fa6";
+import { FaChampagneGlasses } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useUser from "../hooks/useUser";
+
 
 const DashboardLayout = () => {
-    const student = true;
-    const teacher = false;
-    // const [isAdmin] = useAdmin();
-    const isAdmin = false
+    const [userForStatus] = useUser();
+    // console.log('user form dash', userForStatus.role);
+    const isStudent = userForStatus.role === 'student';
+    const isTeacher = userForStatus.role === 'teacher';
+    const [isAdmin] = useAdmin();
+    // const isAdmin = false
 
 
     return (
@@ -21,7 +25,7 @@ const DashboardLayout = () => {
                             Home
                         </NavLink>
                     </li>
-                    {student && <>
+                    {isStudent && <>
                         <li>
                             <NavLink to='/dashboard/myEnrollCourse' className='flex items-center gap-2'>
                                 <FaChampagneGlasses></FaChampagneGlasses>
@@ -30,7 +34,7 @@ const DashboardLayout = () => {
                         </li>
                     </>}
                     {
-                        teacher && <>
+                        isTeacher && <>
                             <li>
                                 <NavLink to='/dashboard/addCourse' className='flex items-center gap-2'>
                                     <FaChampagneGlasses></FaChampagneGlasses>

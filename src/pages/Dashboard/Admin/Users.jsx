@@ -13,6 +13,10 @@ const Users = () => {
         }
     })
 
+
+
+    console.log(users, 'form dashboard user');
+
     const handleMakeAdmin = async (user) => {
         const res = await axiosSecure.patch(`/user/admin/${user._id}`)
         console.log(res.data);
@@ -21,6 +25,7 @@ const Users = () => {
             toast.success(`${user.name} is an admin now`)
         }
     }
+
     return (
         <div>
             <Heading title={`Total users - ${users?.length}`}></Heading>
@@ -38,7 +43,7 @@ const Users = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, i) => <tr key={user._id}>
+                            users?.map((user, i) => <tr key={user._id}>
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>

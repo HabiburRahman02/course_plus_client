@@ -19,6 +19,7 @@ import DashboardAllCourse from "../pages/Dashboard/Admin/DashboardAllCourse";
 import Profile from "../pages/Dashboard/Common/Profile";
 import TeacherRequest from "../pages/Dashboard/Admin/TeacherRequest";
 import MyEnrollCourse from "../pages/Dashboard/Student/MyEnrollCourse";
+import MyEnrollCourseDetails from "../pages/Dashboard/Student/MyEnrollCourseDetails";
 
 const router = createBrowserRouter([
     {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
             {
                 path: 'myEnrollCourse',
                 element: <MyEnrollCourse></MyEnrollCourse>
+            },
+            {
+                path: 'myEnrollCourseDetails/:id',
+                element: <MyEnrollCourseDetails></MyEnrollCourseDetails>
             },
 
             // admin only routes

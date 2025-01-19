@@ -56,9 +56,9 @@ const MyCourseCard = ({ course, refetch }) => {
                 {
                     status === 'approved' ?
                         <Link to={`/dashboard/SeeProgressDetails/${_id}`}>
-                            <button className="btn btn-outline w-full mt-3">See Progress</button>
+                            <button className="btn btn-outline w-full mt-3">See Details</button>
                         </Link>
-                        : <button disabled className="btn btn-outline mt-3">See Progress</button>
+                        : <button disabled className="btn btn-outline mt-3">See Details</button>
                 }
             </div>
         </div>

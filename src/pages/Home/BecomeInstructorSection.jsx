@@ -22,7 +22,7 @@ const BecomeInstructorSection = () => {
                 <p className="text-lg text-gray-600 mb-6">
                     As a teacher, you have the power to shape the future by sharing your knowledge and expertise. Whether you are an experienced educator or an industry expert, our platform offers you the opportunity to reach eager students who are ready to learn.
                 </p>
-                <Link to='/assignments'>
+                <Link to='/teachOnCoursePlus'>
                     <Fade direction='up' duration={2000}>
                         <button className="uppercase bg-cyan-700 py-2 px-12  text-white font-bold 
                                     border-[2px]

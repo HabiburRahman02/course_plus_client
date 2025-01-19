@@ -1,12 +1,16 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
+import useAuth from "../../hooks/useAuth";
 
 const CreateAssignment = () => {
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
+
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
 
@@ -16,9 +20,14 @@ const CreateAssignment = () => {
         if (modal) {
             modal.close();
         }
+        const assignmentInfo = {
+            ...data,
+            email: user?.email
+        }
 
-        const res = await axiosSecure.post('/assignments', data)
+        const res = await axiosSecure.post('/assignments', assignmentInfo)
         if (res.data.insertedId) {
+            reset()
             toast.success('Create a assignment')
         }
     };
