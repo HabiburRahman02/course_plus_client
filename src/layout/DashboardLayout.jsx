@@ -7,11 +7,11 @@ import useUser from "../hooks/useUser";
 
 const DashboardLayout = () => {
     const [userForStatus] = useUser();
-    // console.log('user form dash', userForStatus.role);
+    console.log(userForStatus);
+    console.log('user form dash', userForStatus.role);
     const isStudent = userForStatus.role === 'student';
     const isTeacher = userForStatus.role === 'teacher';
     const [isAdmin] = useAdmin();
-    // const isAdmin = false
 
 
     return (

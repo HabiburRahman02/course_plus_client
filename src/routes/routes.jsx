@@ -75,7 +75,8 @@ const router = createBrowserRouter([
             },
             {
                 path: 'myEnrollCourseDetails/:id',
-                element: <MyEnrollCourseDetails></MyEnrollCourseDetails>
+                element: <MyEnrollCourseDetails></MyEnrollCourseDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/678d4df3f900072bacf969fa/${params.id}`)
             },
 
             // admin only routes

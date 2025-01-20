@@ -6,7 +6,7 @@ import useTeacher from "../../../hooks/useTeacher";
 const TeacherRequest = () => {
     const [teachers, , refetch] = useTeacher();
     const axiosSecure = useAxiosSecure();
-    console.log(teachers);
+
 
     const handleApproved = async (id) => {
         const res = await axiosSecure.patch(`/allTeacherApproved/${id}`)
@@ -15,8 +15,26 @@ const TeacherRequest = () => {
             refetch();
         }
     }
+
+    const handleUserRole = async (email) => {
+        const res = await axiosSecure.patch(`/user/teacher/${email}`)
+        console.log(res.data);
+        if (res.data.modifiedCount > 0) {
+            refetch()
+            toast.success(` is an teacher now`)
+        }
+    }
+
+    const handleUserRoleStudent = async (email) => {
+        const res = await axiosSecure.patch(`/user/student/${email}`)
+        console.log(res.data);
+        if (res.data.modifiedCount > 0) {
+            refetch()
+            toast.success(` Rejected tis instructor`)
+        }
+    }
+
     const handleRejected = async (id) => {
-        console.log(id);
         const res = await axiosSecure.patch(`/allTeacherRejected/${id}`)
         if (res.data.modifiedCount > 0) {
             toast.error('Rejected this Instructor!!')
@@ -65,13 +83,19 @@ const TeacherRequest = () => {
                                 <td>
                                     {
                                         teacher.status === 'rejected' ? <button disabled className="btn btn-secondary">Approve</button> : <button
-                                            onClick={() => handleApproved(teacher._id)}
+                                            onClick={() => {
+                                                handleApproved(teacher._id)
+                                                handleUserRole(teacher.email);
+                                            }}
                                             className="btn btn-secondary" >Approve</button>
                                     }
                                 </td>
                                 <td>
                                     <button
-                                        onClick={() => handleRejected(teacher._id)}
+                                        onClick={() => {
+                                            handleRejected(teacher._id)
+                                            handleUserRoleStudent(teacher.email)
+                                        }}
                                         disabled={teacher.status === 'rejected'}
                                         className="btn btn-accent">Reject</button>
                                 </td>

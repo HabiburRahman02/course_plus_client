@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const MyEnrollCourseCard = ({ course }) => {
+
     return (
         <div className="w-full rounded overflow-hidden shadow-lg bg-white">
             {/* Image */}
@@ -14,7 +15,7 @@ const MyEnrollCourseCard = ({ course }) => {
                 <p className="text-gray-700 text-base mb-2">Posted by: {course.name}</p>
 
                 {/* Continue button */}
-                <Link to={`/myEnrollCourseDetails/${course._id}`}>
+                <Link to={`/dashboard/myEnrollCourseDetails/${course._id}`}>
                     <button className="bg-cyan-600 text-white px-4 py-2 rounded-md hover:bg-cyan-700">
                         Continue
                     </button>

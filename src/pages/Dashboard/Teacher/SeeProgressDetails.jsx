@@ -2,30 +2,19 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import CreateAssignment from "../../Modal/CreateAssignment";
-import { useEffect, useState } from "react";
 
 
 const SeeProgressDetails = () => {
     const axiosSecure = useAxiosSecure();
-    // const [assignmentCounts, setAssignmentCounts] = useState([]);
     const { id } = useParams();
-    // console.log('id from se progress', id);
-
-    // useEffect(() => {
-    //     axiosSecure.get(`/assignments/${id}`)
-    //         .then(res => {
-    //             setAssignmentCounts(res.data);
-    //         })
-    // }, [axiosSecure, id])
 
     const { data: assignmentCounts = [], refetch } = useQuery({
-        queryKey: ['assignments', id],
+        queryKey: ['assignmentsByCourseId', id],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/assignments/${id}`)
+            const res = await axiosSecure.get(`/assignmentsByCourseId/${id}`)
             return res.data;
         }
     })
-
 
 
     const { data: enrollmentCount = 0 } = useQuery({
