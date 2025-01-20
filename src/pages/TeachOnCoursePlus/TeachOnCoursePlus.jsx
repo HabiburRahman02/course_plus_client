@@ -8,15 +8,17 @@ import { useEffect, useState } from "react";
 const TeachOnCoursePlus = () => {
     const [checkUser, setCheckUser] = useState({});
     const { user } = useAuth();
-    const axiosSecure = useAxiosSecure();
+    const axiosSecure = useAxiosSecure()
 
     useEffect(() => {
-        axiosSecure.get(`/userSpecific/${user?.email}`)
+        axiosSecure.get(`/teacherByEmail/${user?.email}`)
             .then(res => {
-                setCheckUser(res?.data?.role);
+                setCheckUser(res?.data?.status);
             })
     }, [axiosSecure, user?.email])
 
+    const admin = checkUser !== 'approved' && checkUser !== 'rejected' && checkUser !== 'pending'
+    console.log(checkUser);
 
     const {
         register,
@@ -37,9 +39,20 @@ const TeachOnCoursePlus = () => {
         }
     }
 
+    const handleRequestAgain = async () => {
+        const res = await axiosSecure.patch(`/requestForPending/${user?.email}`)
+        console.log(res.data);
+        if (res.data.modifiedCount === 0) {
+            toast.error('Already requested for teaching')
+        }
+        if (res.data.modifiedCount > 0) {
+            toast.success(`Apply for teacher again`)
+        }
+    }
+
     return (
         <div>
-            {checkUser === 'student' && <div className="min-h-screen flex items-center justify-center py-12">
+            {admin && <div className="min-h-screen flex items-center justify-center py-12">
                 <div className="max-w-4xl w-full bg-white shadow-xl border border-gray-200 dark:text-black rounded-lg overflow-hidden p-8">
                     <h2 className="text-3xl font-bold text-center text-gray-800">Teach On CoursePlus</h2>
                     <div>
@@ -148,13 +161,24 @@ const TeachOnCoursePlus = () => {
                         </div>
                     </form>
                 </div>
-            </div>}
+            </div>
+            }
 
-            {checkUser === 'teacher' && <h2 className="text-3xl font-bold pt-12 text-center">Congratulation, Now you are an instructor</h2>}
-            {checkUser === 'admin' && <h2 className="text-3xl font-bold pt-12 text-center">You are a Admin</h2>}
+            {checkUser === 'pending' && <h2 className="text-3xl font-bold pt-12 text-center">Your status pending now</h2>}
+            {checkUser === 'approved' && <h2 className="text-3xl font-bold pt-12 text-center">Congratulation, Now you are an instructor</h2>}
+            {checkUser === 'rejected' && <div className="mx-auto text-center">
+                <h2 className="text-3xl font-bold pt-12 text-center">Sorry you are rejected</h2>
+                <button
+                    onClick={handleRequestAgain}
+                    className="btn bg-cyan-700 hover:bg-cyan-800 text-white mx-auto text-center my-3">Request Again</button>
+            </div>}
+            {/* {admin && <h2 className="text-3xl font-bold pt-12 text-center">Oh man, you are a admin</h2>} */}
+
         </div>
 
     );
 };
 
 export default TeachOnCoursePlus;
+
+
