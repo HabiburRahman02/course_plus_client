@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Heading from "../../../components/Heading";
 import AssignmentSubmissionModal from "./AssignmentSubmissionModal";
 import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 
 const MyEnrollCourseDetails = () => {
     const [assId, setAssId] = useState('')
@@ -24,7 +25,8 @@ const MyEnrollCourseDetails = () => {
     return (
         <div>
             <div>
-                <button className="btn bg-cyan-700 hover:bg-cyan-800 text-white px-10 rounded-full">
+                <button className="btn bg-cyan-700 hover:bg-cyan-800 text-white px-6 rounded-full">
+                    <FaPlus></FaPlus>
                     Feedback Us
                 </button>
             </div>
@@ -57,7 +59,7 @@ const MyEnrollCourseDetails = () => {
                                             document.getElementById('my_modal_1').showModal()
                                             setAssId(ass._id)
                                         }}
-                                        className="btn bg-cyan-700 text-white hover:bg-cyan-800 my-4">Submit</button>
+                                        className="btn bg-cyan-700 text-white hover:bg-cyan-800 my-4 px-6">Submit</button>
                                     {/* <button
                                         onClick={() => handleAssignmentSubmit(ass._id)}
                                         className="btn bg-cyan-700 text-white hover:bg-cyan-800">Submit</button> */}

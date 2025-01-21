@@ -94,6 +94,9 @@ const CheckoutForm = ({ course }) => {
                             navigate('/dashboard/myEnrollCourse')
                         }
                     })
+
+                const courseCountRes = await axiosSecure.patch(`/courseForEnrollId/${course._id}`)
+                console.log(courseCountRes.data);
             }
         }
 
