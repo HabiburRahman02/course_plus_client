@@ -1,22 +1,70 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
+import Heading from "../../../components/Heading";
+import AssignmentSubmissionModal from "./AssignmentSubmissionModal";
 
 const MyEnrollCourseDetails = () => {
     const axiosSecure = useAxiosSecure();
-    const id = useParams();
-    console.log('id from details', id);
+    const { id } = useParams();
+
     const { data: assignments = [] } = useQuery({
         queryKey: ['assignments', id],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/assignments/${id}`)
+            const res = await axiosSecure.get(`/assignmentsByCourseId/${id}`)
             return res.data;
         }
     })
 
+    console.log(assignments);
+
+
     return (
         <div>
-            MyEnrollCourseDetails: {assignments.length}
+            <div>
+                <button className="btn bg-cyan-700 hover:bg-cyan-800 text-white px-10 rounded-full">
+                    Feedback Us
+                </button>
+            </div>
+            <Heading title={`Total assignments - ${assignments?.length}`}></Heading>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Marks</th>
+                            <th>Deadline</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            assignments?.map((ass, i) => <tr key={ass._id}>
+                                <th>{i + 1}</th>
+                                <td>{ass.title}</td>
+                                <td>{ass.description.slice(0, 30)}</td>
+                                <td>{ass.marks} coming soon</td>
+                                <td>{ass.deadline}</td>
+                                <td>
+                                    <button
+                                        onClick={() => {
+                                            document.getElementById('my_modal_1').showModal()
+                                        }}
+                                        className="btn bg-cyan-700 text-white hover:bg-cyan-800 my-4">Submit</button>
+                                    {/* <button
+                                        onClick={() => handleAssignmentSubmit(ass._id)}
+                                        className="btn bg-cyan-700 text-white hover:bg-cyan-800">Submit</button> */}
+                                </td>
+                            </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+                <AssignmentSubmissionModal id={id}></AssignmentSubmissionModal>
+            </div>
         </div>
     );
 };

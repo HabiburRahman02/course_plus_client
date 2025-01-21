@@ -22,7 +22,7 @@ const SocialLogin = () => {
                 axiosPublic.post(`/users/${result.user?.email}`, userInfo)
                     .then(res => {
                         console.log('form register page', res.data);
-                        toast.success('Login created successfully')
+                        toast.success('Login user successfully')
                         navigate(location.state || '/')
                     })
             })

@@ -36,6 +36,7 @@ const TeachOnCoursePlus = () => {
         if (res.data.insertedId) {
             toast.success('Apply For join as an instructor')
             reset()
+            window.location.reload()
         }
     }
 

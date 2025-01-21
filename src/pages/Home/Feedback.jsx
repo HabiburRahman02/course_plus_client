@@ -12,14 +12,14 @@ const Feedback = () => {
     const axiosPublic = useAxiosPublic();
 
     useEffect(() => {
-        axiosPublic.get('/feedbacks')
+        axiosPublic.get('feedbacks')
             .then(data => setFeedback(data.data))
     }, [axiosPublic])
 
     return (
         <div className='mb-20 px-6 md:px-0'>
             <Heading
-                title="Teachers Feedback"
+                title="Teaching Evaluation Report"
             ></Heading>
             <Swiper
                 slidesPerView={1}

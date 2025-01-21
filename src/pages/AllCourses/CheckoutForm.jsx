@@ -9,14 +9,13 @@ const CheckoutForm = ({ course }) => {
     const [error, setError] = useState('')
     const [clientSecret, setClientSecret] = useState('')
     const [transId, setTransId] = useState('')
-    console.log('clientSecret', clientSecret);
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const navigate = useNavigate();
     const totalPrice = course.price;
-    console.log('course', course);
+    console.log('course id from checkout', course._id);
 
     useEffect(() => {
         if (totalPrice > 0) {
@@ -84,7 +83,8 @@ const CheckoutForm = ({ course }) => {
                     title: course.title,
                     name: course.name,
                     image: course.image,
-                    email: user?.email
+                    email: user?.email,
+                    enrollId: course._id
                 }
                 axiosSecure.post(`/myEnrollCourse`, enrollInfo)
                     .then(res => {
