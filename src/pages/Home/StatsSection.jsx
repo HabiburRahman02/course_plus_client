@@ -1,10 +1,17 @@
 import Heading from "../../components/Heading";
+import { useEffect, useState } from "react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const StatsSection = () => {
-    // Sample data, replace with dynamic data from  backend
-    const totalUsers = 1200;
-    const totalClasses = 45;
-    const totalEnrollments = 5000;
+    const axiosPublic = useAxiosPublic();
+    const [info, setInfo] = useState([]);
+
+    useEffect(() => {
+        axiosPublic.get('/countForApi')
+            .then(res => {
+                setInfo(res.data);
+            })
+    }, [axiosPublic])
 
     return (
         <div className="mb-20">
@@ -14,15 +21,15 @@ const StatsSection = () => {
                 <div className="w-full md:w-1/2 lg:w-1/2 mb-8 text-center">
                     <div className="bg-white shadow-lg p-6 rounded-lg">
                         <h2 className="text-xl font-semibold mb-2">Total Users</h2>
-                        <p className="text-2xl font-bold">{totalUsers}</p>
+                        <p className="text-2xl font-bold">{info.userCount}</p>
                     </div>
                     <div className="bg-white shadow-lg p-6 rounded-lg mt-6">
-                        <h2 className="text-xl font-semibold mb-2">Total Classes</h2>
-                        <p className="text-2xl font-bold">{totalClasses}</p>
+                        <h2 className="text-xl font-semibold mb-2">Total Course</h2>
+                        <p className="text-2xl font-bold">{info.courseCount}</p>
                     </div>
                     <div className="bg-white shadow-lg p-6 rounded-lg mt-6">
                         <h2 className="text-xl font-semibold mb-2">Total Student Enrollments</h2>
-                        <p className="text-2xl font-bold">{totalEnrollments}</p>
+                        <p className="text-2xl font-bold">{info.enrollCount}</p>
                     </div>
                 </div>
 
