@@ -21,6 +21,7 @@ import TeacherRequest from "../pages/Dashboard/Admin/TeacherRequest";
 import MyEnrollCourse from "../pages/Dashboard/Student/MyEnrollCourse";
 import MyEnrollCourseDetails from "../pages/Dashboard/Student/MyEnrollCourseDetails";
 import DashboardForAllUser from "../pages/DashboardForAlluser";
+import ErrorPage from "../pages/Home/shared/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
             },
         ]
+    },
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
 ]);
 
