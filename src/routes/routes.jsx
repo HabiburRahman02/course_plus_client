@@ -20,6 +20,7 @@ import Profile from "../pages/Dashboard/Common/Profile";
 import TeacherRequest from "../pages/Dashboard/Admin/TeacherRequest";
 import MyEnrollCourse from "../pages/Dashboard/Student/MyEnrollCourse";
 import MyEnrollCourseDetails from "../pages/Dashboard/Student/MyEnrollCourseDetails";
+import DashboardForAllUser from "../pages/DashboardForAlluser";
 
 const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
+            {
+                index: true,
+                element: <DashboardForAllUser></DashboardForAllUser>
+            },
             // common routes
             {
                 path: 'profile',

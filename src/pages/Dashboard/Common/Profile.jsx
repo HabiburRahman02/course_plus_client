@@ -27,7 +27,7 @@ const Profile = () => {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title font-semibold mb-4 text-center mx-auto">Role: {newUser?.role}</h2>
-                    <h2 className="card-title font-semibold mb-4">Name: {newUser?.name}</h2>
+                    <h2 className="card-title font-semibold">Name: {newUser?.name}</h2>
                     <p className="font-semibold text-gray-500">Email: {newUser?.email}</p>
                     <p className="font-semibold text-gray-500">Phone: Not set</p>
 
