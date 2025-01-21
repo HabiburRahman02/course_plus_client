@@ -93,15 +93,19 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 dark:text-black text-black font-medium z-50 mt-3 w-52 p-4 space-y-2 shadow">
+                                className="menu menu-sm dropdown-content bg-base-100 dark:text-black text-black font-medium space-y-2 z-50 mt-3 w-52 p-4 shadow">
 
                                 <li>Name: {user?.displayName}</li>
 
-                                <NavLink to='/dashboard' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Dashboard</NavLink>
+                                {/* <NavLink to='/dashboard' className={({ isActive }) => `hover:text-customGreen duration-500 ${isActive && 'text-customGreen'}`}>Dashboard</NavLink> */}
 
+                                <NavLink to='/dashboard'>
+                                    <button
+                                        className="bg-cyan-700 hover:bg-cyan-800 text-white px-8 py-2 text-center inline rounded-lg w-full">Dashboard</button>
+                                </NavLink>
                                 <button
                                     onClick={handleLogout}
-                                    className="bg-cyan-700 hover:bg-[#03816e] text-white my-3 px-8 py-2 text-center rounded-full inline">Logout</button>
+                                    className="bg-cyan-700 hover:bg-cyan-800 text-white px-8 py-2 text-center rounded-lg inline w-full">Logout</button>
                             </ul>
                         </div>
                     }
