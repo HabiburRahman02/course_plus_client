@@ -5,6 +5,7 @@ import Heading from "../../../components/Heading";
 import AssignmentSubmissionModal from "./AssignmentSubmissionModal";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import FeedbackModal from "./FeedbackModal";
 
 const MyEnrollCourseDetails = () => {
     const [assId, setAssId] = useState('')
@@ -19,13 +20,17 @@ const MyEnrollCourseDetails = () => {
         }
     })
 
-    console.log(assignments);
-
 
     return (
         <div>
+            <FeedbackModal></FeedbackModal>
             <div>
-                <button className="btn bg-cyan-700 hover:bg-cyan-800 text-white px-6 rounded-full">
+                <button
+                    onClick={() => {
+                        document.getElementById('my_modal_2').showModal()
+                        // setAssId(ass._id)
+                    }}
+                    className="btn bg-cyan-700 hover:bg-cyan-800 text-white px-6 rounded-full">
                     <FaPlus></FaPlus>
                     Feedback Us
                 </button>

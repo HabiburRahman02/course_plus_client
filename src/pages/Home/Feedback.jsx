@@ -10,7 +10,7 @@ import useAxiosPublic from '../../hooks/useAxiosPublic';
 const Feedback = () => {
     const [feedback, setFeedback] = useState([]);
     const axiosPublic = useAxiosPublic();
-
+    console.log(feedback);
     useEffect(() => {
         axiosPublic.get('feedbacks')
             .then(data => setFeedback(data.data))
@@ -54,16 +54,16 @@ const Feedback = () => {
                                 <div className="card hover:scale-105 duration-500 h-full rounded-none shadow-lg border">
                                     <figure>
                                         <img
-                                            src={feed.teacherImage}
+                                            src={feed.image}
                                             className='h-32 w-32 mt-8 object-cover rounded-full'
                                             alt="Shoes" />
                                     </figure>
                                     <div className="card-body">
                                         <h2 className="card-title">
-                                            {feed.teacherName}
-                                            {/* <div className="badge badge-secondary">{feed.rating}</div> */}
+                                            {feed.name}
+                                            <div className="badge badge-secondary">{feed.rating}</div>
                                         </h2>
-                                        <p>{feed.feedbackText.slice(0, 150)}...</p>
+                                        <p>{feed.description}...</p>
                                     </div>
                                 </div>
                             </SwiperSlide>

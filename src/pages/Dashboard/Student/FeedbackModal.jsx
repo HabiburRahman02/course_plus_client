@@ -1,11 +1,19 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import StarRatings from "react-star-ratings";
+import { useState } from "react";
+import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { MdOutlineClose } from "react-icons/md";
 
-const AssignmentSubmissionModal = ({ assId, refetch }) => {
+const FeedbackModal = () => {
+    const [rating, setRating] = useState(0);
     const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
+    const navigate = useNavigate()
 
+    console.log(rating);
     const {
         register,
         handleSubmit,
@@ -14,38 +22,37 @@ const AssignmentSubmissionModal = ({ assId, refetch }) => {
 
     const onSubmit = async (data) => {
         // Close the modal after submission
-        const modal = document.getElementById("my_modal_1");
+        const modal = document.getElementById("my_modal_2");
         if (modal) {
             modal.close();
         }
 
-        console.log('submission', assId);
-
-        // return
-        console.log('data from submission', { description: data.description });
-        const res = await axiosSecure.post('/assignmentSubmission', { description: data.description })
-        if (res.data.insertedId) {
-            toast.success('Assignment submitted successfully')
-            refetch();
+        const feedbackInfo = {
+            name: user?.displayName,
+            image: user?.photoURL,
+            description: data.description,
+            rating: rating
         }
+        // console.log('feedback', feedbackInfo);
 
-        // patch in assignments apis
-        const assRes = await axiosSecure.patch(`assignments/${assId}`)
-        console.log('ass res', assRes.data);
+        const res = await axiosSecure.post('/feedbacks', feedbackInfo);
+        if (res.data.insertedId) {
+            toast.success('Successfully provide a feedback')
+            navigate('/')
+        }
     };
 
     // modal close
     const handleModalClose = () => {
-        const modal = document.getElementById("my_modal_1");
+        const modal = document.getElementById("my_modal_2");
         if (modal) {
             modal.close();
         }
     }
 
-
     return (
         <div>
-            <dialog id="my_modal_1" className="modal">
+            <dialog id="my_modal_2" className="modal">
                 <div className="modal-bo">
                     <div className="min-h-screen flex items-center justify-center py-12">
                         <div className="max-w-4xl w-full bg-white shadow-xl border border-gray-200 dark:text-black rounded-lg overflow-hidden p-8">
@@ -57,7 +64,7 @@ const AssignmentSubmissionModal = ({ assId, refetch }) => {
                                 </button>
                             </div>
                             <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
-                                Assignment Submission
+                                Provide a feedback
                             </h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="grid">
@@ -65,7 +72,7 @@ const AssignmentSubmissionModal = ({ assId, refetch }) => {
                                     {/* Assignment Description */}
                                     <div>
                                         <label className="text-sm font-medium text-gray-700">
-                                            Assignment Description
+                                            Feedback Description
                                         </label>
                                         <textarea
                                             {...register("description", {
@@ -83,12 +90,26 @@ const AssignmentSubmissionModal = ({ assId, refetch }) => {
                                         )}
                                     </div>
 
+                                    {/* star */}
+                                    <div className="py-2">
+                                        <StarRatings
+                                            rating={rating}
+                                            starRatedColor={rating > 0 ? "green" : "gray"}
+                                            changeRating={(newRating) => setRating(newRating)}
+                                            numberOfStars={5}
+                                            name="rating"
+                                            starHoverColor="green"
+                                            starDimension="30px"
+                                        />
+                                    </div>
+                                    <p>Rating: {rating}</p>
+
                                     {/* Submit Button */}
                                     <button
                                         type="submit"
                                         className="btn bg-cyan-700 text-white hover:bg-cyan-800 mt-3"
                                     >
-                                        Submit Assignment
+                                        Submit for Feedback
                                     </button>
                                 </div>
                             </form>
@@ -100,4 +121,4 @@ const AssignmentSubmissionModal = ({ assId, refetch }) => {
     );
 };
 
-export default AssignmentSubmissionModal;
+export default FeedbackModal;
