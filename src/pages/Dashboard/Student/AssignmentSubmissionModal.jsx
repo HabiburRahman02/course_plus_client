@@ -1,11 +1,10 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const AssignmentSubmissionModal = ({ id }) => {
+const AssignmentSubmissionModal = ({ assId, refetch }) => {
     const axiosSecure = useAxiosSecure();
-    const params = useParams();
-    console.log(params);
+
     const {
         register,
         handleSubmit,
@@ -19,12 +18,20 @@ const AssignmentSubmissionModal = ({ id }) => {
             modal.close();
         }
 
-        console.log('submission', id);
+        console.log('submission', assId);
 
-        return
+        // return
         console.log('data from submission', { description: data.description });
         const res = await axiosSecure.post('/assignmentSubmission', { description: data.description })
-        console.log(res.data);
+        if (res.data.insertedId) {
+            toast.success('Assignment submitted successfully')
+            refetch();
+        }
+
+        // patch in assignments apis
+        const assRes = await axiosSecure.patch(`assignments/${assId}`)
+        console.log('ass res', assRes.data);
+
 
     };
     return (
@@ -65,7 +72,7 @@ const AssignmentSubmissionModal = ({ id }) => {
                                         type="submit"
                                         className="btn bg-cyan-700 text-white hover:bg-cyan-800 mt-3"
                                     >
-                                        Add Assignment
+                                        Submit Assignment
                                     </button>
                                 </div>
                             </form>

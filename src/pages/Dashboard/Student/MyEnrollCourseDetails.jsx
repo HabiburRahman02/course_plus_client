@@ -3,12 +3,14 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
 import Heading from "../../../components/Heading";
 import AssignmentSubmissionModal from "./AssignmentSubmissionModal";
+import { useState } from "react";
 
 const MyEnrollCourseDetails = () => {
+    const [assId, setAssId] = useState('')
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
 
-    const { data: assignments = [] } = useQuery({
+    const { data: assignments = [], refetch } = useQuery({
         queryKey: ['assignments', id],
         queryFn: async () => {
             const res = await axiosSecure.get(`/assignmentsByCourseId/${id}`)
@@ -50,8 +52,10 @@ const MyEnrollCourseDetails = () => {
                                 <td>{ass.deadline}</td>
                                 <td>
                                     <button
+                                        disabled={ass.submissionCount > 0}
                                         onClick={() => {
                                             document.getElementById('my_modal_1').showModal()
+                                            setAssId(ass._id)
                                         }}
                                         className="btn bg-cyan-700 text-white hover:bg-cyan-800 my-4">Submit</button>
                                     {/* <button
@@ -63,7 +67,7 @@ const MyEnrollCourseDetails = () => {
                         }
                     </tbody>
                 </table>
-                <AssignmentSubmissionModal id={id}></AssignmentSubmissionModal>
+                <AssignmentSubmissionModal assId={assId} refetch={refetch}></AssignmentSubmissionModal>
             </div>
         </div>
     );
