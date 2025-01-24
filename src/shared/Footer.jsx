@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <Fade>
-            <div className="bg-cyan-950 text-white mt-10 py-5">
+            <div className="bg-gray-950 text-white mt-10 py-5">
                 <footer className="py-16 max-w-[1400px] mx-auto px-6 md:px-0">
                     <div className="sm:flex sm:justify-between space-y-12 sm:space-y-0">
                         {/* Services Section */}

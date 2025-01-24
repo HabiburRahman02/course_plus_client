@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import { toast } from "react-toastify";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://course-plus-server-orcin.vercel.app',
 })
 
 const useAxiosSecure = () => {

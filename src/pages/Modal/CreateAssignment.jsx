@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
 import { useParams } from "react-router-dom";
+import { MdOutlineClose } from "react-icons/md";
 
 
 const CreateAssignment = ({ refetch }) => {
@@ -39,12 +40,27 @@ const CreateAssignment = ({ refetch }) => {
         }
     };
 
+    // modal close
+    const handleModalClose = () => {
+        const modal = document.getElementById("my_modal_1");
+        if (modal) {
+            modal.close();
+        }
+    }
+
     return (
         <div>
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-bo">
                     <div className="min-h-screen flex items-center justify-center py-12">
                         <div className="max-w-4xl w-full bg-white shadow-xl border border-gray-200 dark:text-black rounded-lg overflow-hidden p-8">
+                            <div className="text-end">
+                                <button
+                                    onClick={handleModalClose}
+                                    className="btn bg-cyan-700 hover:bg-cyan-800 text-white rounded-full">
+                                    <MdOutlineClose className="text-lg font-bold"></MdOutlineClose>
+                                </button>
+                            </div>
                             <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
                                 Add Assignment
                             </h2>
@@ -110,7 +126,7 @@ const CreateAssignment = ({ refetch }) => {
                                     {/* Submit Button */}
                                     <button
                                         type="submit"
-                                        className="btn btn-primary mt-4"
+                                        className="btn bg-cyan-700 hover:bg-cyan-800 text-white mt-4"
                                     >
                                         Add Assignment
                                     </button>

@@ -24,7 +24,7 @@ const CourseCard = ({ course }) => {
                 </div>
                 <div className="card-actions mt-2">
                     <Link to={`/courseDetails/${_id}`} className="w-full">
-                        <button className="btn btn-primary w-full">Enroll</button>
+                        <button className="btn bg-cyan-700 hover:bg-cyan-800 text-white w-full">Enroll</button>
                     </Link>
                 </div>
             </div>

@@ -4,6 +4,8 @@ import { FaChampagneGlasses } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useUser from "../hooks/useUser";
+import { MdAddBox } from "react-icons/md";
+import { RiListUnordered } from "react-icons/ri";
 
 const DashboardLayout = () => {
     const [userForStatus] = useUser();
@@ -40,13 +42,13 @@ const DashboardLayout = () => {
                         <>
                             <li>
                                 <NavLink to="/dashboard/addCourse" className="flex items-center gap-2">
-                                    <FaChampagneGlasses />
+                                    <MdAddBox></MdAddBox>
                                     Add Course
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dashboard/myCourse" className="flex items-center gap-2">
-                                    <FaChampagneGlasses />
+                                    <RiListUnordered className="font-semibold" />
                                     My Course
                                 </NavLink>
                             </li>

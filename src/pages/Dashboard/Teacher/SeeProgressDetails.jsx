@@ -30,6 +30,7 @@ const SeeProgressDetails = () => {
     }, 0)
     // console.log(assignmentCounts, totalSubmission);
 
+
     return (
         <div className="mx-12">
             <div className="md:flex justify-between gap-6 px-10 mt-6">

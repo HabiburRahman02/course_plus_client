@@ -86,20 +86,18 @@ const AddCourse = () => {
                                 className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
                             />
                         </div>
-
-                        {/* Email (Read Only) */}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">Email</label>
-                            <input
-                                {...register('email')}
-                                type="email"
-                                readOnly
-                                value={user?.email}
-                                className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
-                            />
-                        </div>
                     </div>
-
+                    {/* Email (Read Only) */}
+                    <div className='mt-6'>
+                        <label className="block w-full text-sm font-medium text-gray-700">Email</label>
+                        <input
+                            {...register('email')}
+                            type="email"
+                            readOnly
+                            value={user?.email}
+                            className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                        />
+                    </div>
                     {/* Description */}
                     <div className="mt-6">
                         <label className="block text-sm font-medium text-gray-700">Description</label>
