@@ -30,7 +30,7 @@ const TeacherRequest = () => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {
             refetch()
-            toast.success(` Rejected tis instructor`)
+            // toast.success(`Rejected this instructor`)
         }
     }
 
