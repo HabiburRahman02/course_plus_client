@@ -16,7 +16,6 @@ const UpdateProfileModal = () => {
 
     const onSubmit = (data) => {
         // Close the modal after submission
-        console.log(data)
         const modal = document.getElementById("my_modal_2");
         if (modal) {
             modal.close();
@@ -24,6 +23,12 @@ const UpdateProfileModal = () => {
         const updateData = {
             name: data.name,
             photoUrl: data.photoUrl
+        }
+
+        if (user?.displayName === data.name && user?.photoURL === data.photoUrl) {
+            toast.info('No changes made!');
+            setLoading(false);
+            return;
         }
 
         updateUserProfile(data.name, data.photoUrl)
