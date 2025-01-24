@@ -66,11 +66,12 @@ const AuthProvider = ({ children }) => {
         return () => {
             unsubscribe();
         }
-    }, [])
+    }, [axiosPublic])
 
     const info = {
         user,
         loading,
+        setLoading,
         createUser,
         loginUser,
         googleLogin,

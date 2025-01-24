@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import UpdateProfileModal from "./UpdateProfileModal";
 
 
 const Profile = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const [newUser, setNewUser] = useState();
-    console.log('user', newUser);
+    // console.log('user', newUser);
 
     useEffect(() => {
         axiosSecure.get(`/userSpecific/${user?.email}`)
@@ -16,7 +17,7 @@ const Profile = () => {
             })
     }, [axiosSecure, user?.email])
     return (
-        <div className="max-w-[1400px] mx-auto pt-20 px-2 md:px-0">
+        <div className="max-w-[1400px] mx-auto md:px-0">
             <div className="card bg-base-100 max-w-[500px] drop-shadow-2xl rounded-none mx-auto">
                 <h2 className="text-3xl font-semibold my-6 text-center">Profile</h2>
                 <figure className="">
@@ -31,11 +32,16 @@ const Profile = () => {
                     <p className="font-semibold text-gray-500">Email: {newUser?.email}</p>
                     <p className="font-semibold text-gray-500">Phone: Not set</p>
 
-                    <button type="submit" className="bg-cyan-700 rounded-lg w-full mt-4 py-3 px-8  text-white font-bold hover:bg-[rgb(10,132,176)] transition-colors">
+                    <button
+                        onClick={() => {
+                            document.getElementById('my_modal_2').showModal()
+                        }}
+                        type="submit" className="bg-cyan-700 rounded-lg w-full mt-4 py-3 px-8  text-white font-bold hover:bg-[rgb(10,132,176)] transition-colors">
                         Update Profile
                     </button>
                 </div>
             </div>
+            <UpdateProfileModal ></UpdateProfileModal>
         </div>
     );
 };
