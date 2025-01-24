@@ -4,7 +4,7 @@ const CourseCard = ({ course }) => {
     const { _id, title, name, image, price, description, totalEnrollment } = course;
 
     return (
-        <div className="card w-full bg-base-100 shadow-xl">
+        <div className="card w-full h-full bg-base-100 shadow-xl">
             <figure>
                 <img
                     src={image}
