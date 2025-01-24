@@ -17,7 +17,7 @@ const Feedback = () => {
     }, [axiosPublic])
 
     return (
-        <div className='mb-20 px-6 md:px-0 bg-white'>
+        <div className='mb-20 px-6 md:px-0'>
             <Heading
                 title="Teaching Evaluation Report"
             ></Heading>
@@ -51,7 +51,7 @@ const Feedback = () => {
                     {
                         feedback.map(feed =>
                             <SwiperSlide key={feed._id}>
-                                <div className="card hover:scale-105 duration-500 h-full rounded-none shadow-lg border">
+                                <div className="card  bg-white hover:scale-105 duration-500 h-full rounded-none shadow-lg border">
                                     <figure>
                                         <img
                                             src={feed.image}

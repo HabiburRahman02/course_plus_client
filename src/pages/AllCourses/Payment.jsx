@@ -5,7 +5,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
 
-// TODO: added pk
+// DONE: added pk
 const stripePromise = loadStripe(import.meta.env.VITE_stripe_published_key)
 const Payment = () => {
     const course = useLoaderData();
