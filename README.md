@@ -1,3 +1,5 @@
+## Home Page Screenshot
+![Online study website](https://i.ibb.co.com/6cstWQdK/course-web.jpg)
 # Course Plus
 
 Course Plus is an Education Management Platform that provides online learning opportunities. The platform allows users to study at their convenience, explore various courses, and request to become teachers. Teachers gain special powers after approval from the admin, including the ability to add, update, and delete courses. Admins have full control over the website and user management.
