@@ -136,3 +136,7 @@ npm run dev
 
 This will start the project at http://localhost:5173/ (or another available port).
 
+## Backend Link
+The backend for this project can be found here:  
+[Course Plus Server](https://github.com/HabiburRahman02/course_plus_server)
+
