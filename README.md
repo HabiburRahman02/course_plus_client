@@ -1,5 +1,5 @@
-## Home Page Screenshot
-![Online study website](https://i.ibb.co.com/6cstWQdK/course-web.jpg)
+## Website Screenshot
+![Education management website](https://i.ibb.co.com/6cstWQdK/course-web.jpg)
 # Course Plus
 
 Course Plus is an Education Management Platform that provides online learning opportunities. The platform allows users to study at their convenience, explore various courses, and request to become teachers. Teachers gain special powers after approval from the admin, including the ability to add, update, and delete courses. Admins have full control over the website and user management.
@@ -59,3 +59,46 @@ VITE_messagingSenderId=your-sender-id-here
 VITE_appId=your-app-id-here
 
 VITE_stripe_published_key=your-stripe-published-key-here
+
+💻 Project Setup & Run Instructions
+✅ 1. Clone the Repository
+
+If using HTTPS:
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/courseplus.git
+If using SSH:
+
+bash
+Copy
+Edit
+git clone git@github.com:your-username/courseplus.git
+👉 Replace your-username with your actual GitHub username.
+
+✅ 2. Navigate to the Project Directory
+
+bash
+Copy
+Edit
+cd courseplus
+✅ 3. Install Dependencies
+
+Run the following command to install all required packages:
+
+bash
+Copy
+Edit
+npm install
+✅ 4. Create an .env File
+
+Create a .env file in the root directory and add the environment variables as mentioned above.
+
+✅ 5. Start the Development Server
+
+bash
+Copy
+Edit
+npm run dev
+This will start the project at http://localhost:5173/ (or another available port).
