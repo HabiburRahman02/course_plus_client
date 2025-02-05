@@ -89,6 +89,9 @@ Course Plus is an Education Management Platform that provides online learning op
 - **tailwindcss**: ^3.4.17  
 - **vite**: ^6.0.5  
 
+## Backend Link
+The backend for this project can be found here:  
+[Course Plus Server](https://github.com/HabiburRahman02/course_plus_server)
 
 ## 🛠️ Environment Variables
 
@@ -136,7 +139,4 @@ npm run dev
 
 This will start the project at http://localhost:5173/ (or another available port).
 
-## Backend Link
-The backend for this project can be found here:  
-[Course Plus Server](https://github.com/HabiburRahman02/course_plus_server)
 
