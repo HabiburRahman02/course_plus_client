@@ -11,13 +11,16 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Partners></Partners>
-            <PopularCourses></PopularCourses>
-            <Feedback></Feedback>
-            <StatsSection></StatsSection>
-            <BecomeInstructorSection></BecomeInstructorSection>
-            <Faq></Faq>
-            <WhyChooseUs></WhyChooseUs>
+            <div className="max-w-[1300px] mx-auto">
+                <Partners />
+                <PopularCourses />
+                <Feedback />
+                <StatsSection />
+                <BecomeInstructorSection />
+                <Faq />
+                <WhyChooseUs />
+            </div>
+
         </div>
     );
 };

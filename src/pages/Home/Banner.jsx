@@ -1,8 +1,8 @@
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import banner1 from '../../assets/banner/banner1.jpg'
-import banner2 from '../../assets/banner/banner2.jpg'
-import banner3 from '../../assets/banner/banner3.jpg'
+import banner2 from '../../assets/banner/banner2.png'
+import banner3 from '../../assets/banner/banner2.png'
 import { Link } from 'react-router-dom';
 
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
@@ -15,10 +15,10 @@ const Banner = () => {
     return (
         <div className=''>
             <AutoplaySlider
-                play={true}
+                // play={true}
                 cancelOnInteraction={false}
                 interval={2000}
-                className='w-full md:h-[650px] bg-fixed h-[520px]' >
+                className='w-full md:h-[550px] bg-fixed h-[520px]' >
                 <div
                     className="hero min-h-screen"
                     style={{
@@ -26,7 +26,7 @@ const Banner = () => {
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover'
                     }}>
-                    <div className="hero-overlay bg-opacity-0"></div>
+                    <div className="hero-overlay bg-opacity-70"></div>
                     <div className="hero-content text-neutral-content">
                         <div className='flex justify-start items-center'>
                             <div className="md:w-2/3">
@@ -62,7 +62,7 @@ const Banner = () => {
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover'
                     }}>
-                    <div className="hero-overlay bg-opacity-0"></div>
+                    <div className="hero-overlay bg-opacity-80"></div>
                     <div className="hero-content text-neutral-content">
                         <div className='flex justify-start items-center'>
                             <div className="md:w-2/3">
