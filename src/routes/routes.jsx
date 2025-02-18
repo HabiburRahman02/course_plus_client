@@ -39,12 +39,12 @@ const router = createBrowserRouter([
             {
                 path: 'courseDetails/:id',
                 element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://course-plus-server-orcin.vercel.app/specificCourseForUpdate/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
             {
                 path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://course-plus-server-orcin.vercel.app/specificCourseForUpdate/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
             {
                 path: 'teachOnCoursePlus',
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
             {
                 path: 'myEnrollCourseDetails/:id',
                 element: <MyEnrollCourseDetails></MyEnrollCourseDetails>,
-                loader: ({ params }) => fetch(`https://course-plus-server-orcin.vercel.app/678d4df3f900072bacf969fa/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/678d4df3f900072bacf969fa/${params.id}`)
             },
 
             // admin only routes
@@ -111,12 +111,12 @@ const router = createBrowserRouter([
             {
                 path: 'updateCourse/:id',
                 element: <UpdateCourse></UpdateCourse>,
-                loader: ({ params }) => fetch(`https://course-plus-server-orcin.vercel.app/specificCourseForUpdate/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/specificCourseForUpdate/${params.id}`)
             },
             {
                 path: 'seeProgressDetails/:id',
                 element: <SeeProgressDetails></SeeProgressDetails>,
-                loader: ({ params }) => fetch(`https://course-plus-server-orcin.vercel.app/assignment/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
             },
         ]
     },
