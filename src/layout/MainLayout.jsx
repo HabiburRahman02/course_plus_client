@@ -7,7 +7,7 @@ const MainLayout = () => {
     const isBannerPage = location.pathname === "/";
     return (
         <div>
-            <div className="mb-[88px]">
+            <div className="mb-[83px]">
                 <Navbar></Navbar>
             </div>
             <div className={`${isBannerPage ? "w-full" : "max-w-[1400px]"} mx-auto min-h-screen`}>

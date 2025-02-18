@@ -26,7 +26,7 @@ const AllCourses = () => {
                 <Heading
                     title={` All Courses: ${courses?.length}`}
                 > </Heading>
-                <select onChange={handleSort} className="select w-full md:max-w-xs mb-4 md:mb-0">
+                <select onChange={handleSort} className="select w-full md:max-w-xs mb-8 md:mb-0 border-blue-500">
                     <option disabled selected>Would you like to sort?</option>
                     <option value={'asc'}>Low Price Courses</option>
                     <option value={'desc'}>High Price Courses</option>

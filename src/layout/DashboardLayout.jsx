@@ -6,6 +6,7 @@ import useAdmin from "../hooks/useAdmin";
 import useUser from "../hooks/useUser";
 import { MdAddBox } from "react-icons/md";
 import { RiListUnordered } from "react-icons/ri";
+import logo from '../assets/logo/logo.png'
 
 const DashboardLayout = () => {
     const [userForStatus] = useUser();
@@ -23,6 +24,10 @@ const DashboardLayout = () => {
                 className={`fixed top-0 left-0 z-50 h-full bg-cyan-700 min-h-screen p-6 text-white flex-shrink-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
                     } md:translate-x-0 md:static transition-transform duration-300 ease-in-out md:basis-1/5`}
             >
+                <div className="flex gap-2 mb-4 items-center">
+                    <img src={logo} className="h-6 w-6" alt="" />
+                    <span>CoursePlus</span>
+                </div>
                 <ul className="space-y-3">
                     <li>
                         <NavLink to="/" className="flex items-center gap-2">
