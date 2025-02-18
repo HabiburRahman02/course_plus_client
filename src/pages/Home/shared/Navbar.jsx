@@ -56,7 +56,7 @@ const Navbar = () => {
                     </div>
                     <Link to='/' className="font-semibold text-2xl flex items-center gap-2">
                         <img className="" src={logo} alt="" />
-                        <span className="hidden lg:block"> Course<span className="">Plus</span></span>
+                        <span className="hidden lg:block"> Course<span className="">Minus</span></span>
                     </Link>
                 </div>
 
