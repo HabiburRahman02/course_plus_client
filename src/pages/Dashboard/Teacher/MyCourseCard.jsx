@@ -33,35 +33,35 @@ const MyCourseCard = ({ course, refetch }) => {
 
 
     return (
-        <div className="card w-full card-compact bg-base-100 shadow-xl">
+        <div className="card w-full max-w-sm bg-base-100 shadow-md rounded-lg overflow-hidden border border-gray-200">
             <figure>
-                <img
-                    className="h-[200px] w-full object-cover"
-                    src={image}
-                    alt="Shoes" />
+                <img className="h-[160px] w-full object-cover" src={image} alt={title} />
             </figure>
-            <div className="card-body">
-                <h2 className="card-title">Title: {title}</h2>
-                <p><span className="font-semibold">Name:</span> {name}</p>
-                <p><span className="font-semibold">Email:</span> {email}</p>
-                <p><span className="font-semibold">Description:</span> {description}</p>
-                <p><span className="font-semibold">Price:</span> ${price}</p>
-                <p><span className="font-semibold">Status:</span> <span className="bg-pink-200 rounded-full px-2 py-1">{status}</span></p>
-                <div className="card-actions justify-between">
-                    <Link to={`/dashboard/updateCourse/${_id}`}>
-                        <button className="btn btn-primary">Update</button>
-                    </Link>
-                    <button onClick={() => handleDelete(_id)} className="btn btn-secondary">Delete</button>
+            <div className="card-body p-4 space-y-0">
+                <h2 className="text-lg font-semibold truncate">{title}</h2>
+                <p className="text-sm text-gray-600"><span className="font-medium">By:</span> {name}</p>
+                <p className="text-sm text-gray-600"><span className="font-medium">Email:</span> {email}</p>
+                <p className="text-sm text-gray-600 line-clamp-2">{description}</p>
+                <div className="flex justify-between items-center mt-2">
+                    <span className="text-sm font-semibold text-gray-800">${price}</span>
+                    <span className={`px-2 py-1 text-xs rounded-full ${status === 'approved' ? 'bg-green-200 text-green-700' : 'bg-pink-200 text-pink-700'}`}>
+                        {status}
+                    </span>
                 </div>
-                {
-                    status === 'approved' ?
-                        <Link to={`/dashboard/SeeProgressDetails/${_id}`}>
-                            <button className="btn btn-outline w-full mt-3">See Details</button>
-                        </Link>
-                        : <button disabled className="btn btn-outline mt-3">See Details</button>
-                }
+                <div className="mt-3 flex gap-2">
+                    <Link to={`/dashboard/updateCourse/${_id}`} className="w-1/2">
+                        <button className="btn btn-sm btn-primary w-full">Update</button>
+                    </Link>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-sm btn-secondary w-1/2">Delete</button>
+                </div>
+                <Link to={status === 'approved' ? `/dashboard/SeeProgressDetails/${_id}` : '#'}>
+                    <button className={`btn btn-outline btn-sm w-full mt-2 ${status !== 'approved' && 'opacity-50 cursor-not-allowed'}`} disabled={status !== 'approved'}>
+                        See Details
+                    </button>
+                </Link>
             </div>
         </div>
+
     );
 };
 

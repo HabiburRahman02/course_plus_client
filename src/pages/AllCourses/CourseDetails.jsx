@@ -8,7 +8,7 @@ const CourseDetails = () => {
         <div className="mx-3 md:mx-0 py-12">
             <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-md dark:text-black">
                 <img className="h-64 w-full object-cover rounded-lg mb-4" src={course.image} alt="" />
-                <h1 className="text-2xl font-bold mb-4 text-center">course Details</h1>
+                <h1 className="text-2xl font-bold mb-4 text-center">Course Details</h1>
                 <div className="mb-4">
                     <h2 className="text-xl font-semibold">Title: {course.title}</h2>
                     <p className="text-gray-600">Description: {course.description}</p>
