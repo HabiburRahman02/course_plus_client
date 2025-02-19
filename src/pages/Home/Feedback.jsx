@@ -17,7 +17,7 @@ const Feedback = () => {
     }, [axiosPublic])
 
     return (
-        <div className='mb-20 px-6 md:px-0'>
+        <div className='pb-20 px-6 md:px-0'>
             <Heading
                 title="Teaching Evaluation Report"
             ></Heading>

@@ -21,12 +21,12 @@ const AllCourses = () => {
     }
 
     return (
-        <div className="pb-20 pt-10">
+        <div className="pb-20 pt-10 ">
             <div className="md:flex justify-between">
                 <Heading
                     title={` All Courses: ${courses?.length}`}
                 > </Heading>
-                <select onChange={handleSort} className="select w-full md:max-w-xs mb-8 md:mb-0 border-blue-500">
+                <select onChange={handleSort} className="select w-full md:max-w-xs mb-8 md:mb-0 border-blue-500 dark:bg-gray-800 dark:text-white">
                     <option disabled selected>Would you like to sort?</option>
                     <option value={'asc'}>Low Price Courses</option>
                     <option value={'desc'}>High Price Courses</option>

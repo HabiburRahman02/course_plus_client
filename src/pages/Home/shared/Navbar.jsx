@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/logo/logo.png'
 import useAuth from "../../../hooks/useAuth";
 import { toast } from "react-toastify";
+import { FaUserCircle } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -55,6 +56,11 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to='teachOnCoursePlus' className={({ isActive }) => `hover:text-cyan-700 duration-500 ${isActive && 'text-cyan-700'}`}>Teach on CoursePlus</NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to='/dashboard/profile' className={({ isActive }) => `hover:text-orange-200 duration-500 ${isActive && 'text-cyan-700'}`}>
+                                        Profile
+                                    </NavLink>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -102,6 +108,11 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink to='teachOnCoursePlus' className={({ isActive }) => ` hidden md:block duration-500 hover:text-orange-200 ${isActive && ' text-orange-200'}`}>Teach On CoursePlus</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/dashboard/profile' className={({ isActive }) => `hover:text-orange-200 duration-500 ${isActive && 'text-cyan-700'}`}>
+                                Profile
+                            </NavLink>
                         </li>
                     </ul>
                     <div>

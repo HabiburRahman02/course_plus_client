@@ -54,8 +54,8 @@ const TeachOnCoursePlus = () => {
     return (
         <div>
             {admin && <div className="min-h-screen flex items-center justify-center py-12">
-                <div className="max-w-4xl w-full bg-white shadow-xl border border-gray-200 dark:text-black rounded-lg overflow-hidden p-8">
-                    <h2 className="text-3xl font-bold text-center text-gray-800">Teach On CoursePlus</h2>
+                <div className="max-w-4xl w-full dark:bg-gray-900 dark:text-white bg-white shadow-xl border border-gray-200  rounded-lg overflow-hidden p-8">
+                    <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-100">Teach On CoursePlus</h2>
                     <div>
                         <img className="rounded-full mx-auto my-6 w-32 object-cover h-32" src={user?.photoURL} alt="" />
                     </div>
@@ -64,13 +64,13 @@ const TeachOnCoursePlus = () => {
 
                             {/* Name */}
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">Name</label>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">Name</label>
                                 <input
                                     {...register("name", { required: true })}
                                     type="text"
                                     name="name"
                                     defaultValue={user?.displayName}
-                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
+                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 dark:bg-gray-800"
                                 />
                                 {errors.name?.type === 'required' && <span className='text-red-500'>Name field is required</span>}
                             </div>
@@ -84,7 +84,7 @@ const TeachOnCoursePlus = () => {
                                     name="email"
                                     defaultValue={user?.email}
                                     readOnly
-                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed dark:bg-gray-800"
                                 />
                             </div>
 
@@ -98,7 +98,7 @@ const TeachOnCoursePlus = () => {
                                     name="image"
                                     readOnly
                                     placeholder="Enter profile image URL"
-                                    className="focus:outline-none disabled bg-gray-100 focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
+                                    className="focus:outline-none disabled bg-gray-100 focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 dark:bg-gray-800"
                                 />
                                 {errors.image?.type === 'required' && <span className='text-red-500'>Image field is required</span>}
                             </div>
@@ -111,7 +111,7 @@ const TeachOnCoursePlus = () => {
                                 <select
                                     {...register("experience", { required: true })}
                                     name="experience"
-                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 select select-bordered w-full mt-1"
+                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 select select-bordered w-full mt-1 dark:bg-gray-800"
                                 >
                                     <option value="beginner">Beginner</option>
                                     <option value="mid-level">Mid-Level</option>
@@ -128,7 +128,7 @@ const TeachOnCoursePlus = () => {
                                     type="text"
                                     name="title"
                                     placeholder="Enter your title"
-                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1"
+                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 input input-bordered w-full mt-1 dark:bg-gray-800"
                                 />
                                 {errors.title?.type === 'required' && <span className='text-red-500'>Password field is required</span>}
                             </div>
@@ -139,7 +139,7 @@ const TeachOnCoursePlus = () => {
                                 <select
                                     {...register("category", { required: true })}
                                     name="category"
-                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 select select-bordered w-full mt-1"
+                                    className="focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-indigo-400 select select-bordered w-full mt-1 dark:bg-gray-800"
                                 >
                                     <option value="web development">Web Development</option>
                                     <option value="digital marketing">Digital Marketing</option>
