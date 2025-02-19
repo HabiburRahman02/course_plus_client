@@ -3,7 +3,6 @@ import Heading from "../../../components/Heading";
 import useAllCourse from "../../../hooks/useAllCourse";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-
 const DashboardAllCourse = () => {
     const [courses, , refetch] = useAllCourse();
     const axiosSecure = useAxiosSecure();
@@ -26,7 +25,7 @@ const DashboardAllCourse = () => {
     }
 
     return (
-        <div className="pb-20 pt-10 bg-white px-6">
+        <div className="pb-20 pt-10">
             <Heading title={`All Courses Request - ${courses?.length}`} />
 
             <div className="overflow-x-auto">
@@ -40,9 +39,9 @@ const DashboardAllCourse = () => {
                             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Email</th>
                             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Description</th>
                             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Status</th>
-                            <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Action 1</th>
-                            <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Action 2</th>
-                            <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Progress</th>
+                            <th className="px-4 py-2 text-sm font-semibold text-gray-700">Action 1</th>
+                            <th className="px-4 py-2 text-sm font-semibold text-gray-700">Action 2</th>
+                            <th className="px-4 py-2 text-sm font-semibold text-gray-700">Progress</th>
                         </tr>
                     </thead>
 
@@ -68,7 +67,7 @@ const DashboardAllCourse = () => {
                                     <td className="px-4 py-2 text-sm text-gray-600">{course.email}</td>
                                     <td className="px-4 py-2 text-sm text-gray-600">{course.description.slice(0, 30)}...</td>
                                     <td className="px-4 py-2">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${course.status === 'approved' ? 'bg-green-100 text-green-700' :
+                                        <span className={`px-3 py-1 rounded-full text-xs font-medium block text-center ${course.status === 'approved' ? 'bg-green-100 text-green-700' :
                                             course.status === 'rejected' ? 'bg-red-100 text-red-700' :
                                                 course.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
                                                     'bg-gray-100 text-gray-700'
@@ -80,7 +79,7 @@ const DashboardAllCourse = () => {
                                         <button
                                             onClick={() => handleApproved(course._id)}
                                             disabled={course.status === 'approved'}
-                                            className={`btn ${course.status === 'approved' ? 'btn-disabled' : 'btn-secondary'}`}
+                                            className={`btn btn-sm w-full ${course.status === 'approved' ? 'btn-disabled' : 'btn-secondary'}`}
                                         >
                                             Approve
                                         </button>
@@ -89,16 +88,16 @@ const DashboardAllCourse = () => {
                                         <button
                                             onClick={() => handleRejected(course._id)}
                                             disabled={course.status === 'rejected'}
-                                            className={`btn ${course.status === 'rejected' ? 'btn-disabled' : 'btn-accent'}`}
+                                            className={`btn w-full btn-sm ${course.status === 'rejected' ? 'btn-disabled' : 'btn-accent'}`}
                                         >
                                             Reject
                                         </button>
                                     </td>
                                     <td className="px-4 py-2">
                                         {course.status === 'approved' ? (
-                                            <button className="btn btn-primary">Progress</button>
+                                            <button className="btn btn-sm btn-primary w-full">Progress</button>
                                         ) : (
-                                            <button className="btn btn-primary" disabled>Progress</button>
+                                            <button className="btn btn-sm btn-primary w-full" disabled>Progress</button>
                                         )}
                                     </td>
                                 </tr>
@@ -108,6 +107,7 @@ const DashboardAllCourse = () => {
                 </table>
             </div>
         </div>
+
 
 
     );

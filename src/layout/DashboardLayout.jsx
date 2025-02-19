@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaChalkboardTeacher, FaHome, FaList, FaUserCircle, FaUsers } from "react-icons/fa";
-import { FaChampagneGlasses } from "react-icons/fa6";
+import { FaBoxesStacked, FaChampagneGlasses } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useUser from "../hooks/useUser";
@@ -81,6 +81,12 @@ const DashboardLayout = () => {
                             </li>
                         </>
                     )}
+                    <li>
+                        <NavLink to="/dashboard/out-stats" className="flex items-center gap-2">
+                            <FaBoxesStacked />
+                            Our Stats
+                        </NavLink>
+                    </li>
                     <li>
                         <NavLink to="/dashboard/profile" className="flex items-center gap-2">
                             <FaUserCircle />

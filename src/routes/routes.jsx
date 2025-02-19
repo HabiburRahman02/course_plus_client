@@ -22,6 +22,7 @@ import MyEnrollCourse from "../pages/Dashboard/Student/MyEnrollCourse";
 import MyEnrollCourseDetails from "../pages/Dashboard/Student/MyEnrollCourseDetails";
 import DashboardForAllUser from "../pages/DashboardForAlluser";
 import ErrorPage from "../pages/Home/shared/ErrorPage";
+import OurStats from "../pages/Dashboard/Common/OurStats";
 
 const router = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
             {
                 path: 'profile',
                 element: <Profile></Profile>
+            },
+            {
+                path: 'out-stats',
+                element: <OurStats></OurStats>
             },
 
             // student routes
