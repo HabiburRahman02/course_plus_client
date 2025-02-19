@@ -16,10 +16,10 @@ const BecomeInstructorSection = () => {
 
             {/* Right side - Text */}
             <div className="w-full md:w-1/2 lg:w-1/2 mb-8 flex flex-col justify-center">
-                <h2 className="text-3xl font-semibold mb-4 text-gray-800">
+                <h2 className="text-3xl font-semibold mb-4 text-gray-800 dark:text-white">
                     Become an Instructor
                 </h2>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="text-lg text-gray-600 mb-6 dark:text-white">
                     As a teacher, you have the power to shape the future by sharing your knowledge and expertise. Whether you are an experienced educator or an industry expert, our platform offers you the opportunity to reach eager students who are ready to learn.
                 </p>
                 <Link to='/teachOnCoursePlus'>

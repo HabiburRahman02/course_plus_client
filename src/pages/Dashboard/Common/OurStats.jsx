@@ -20,7 +20,7 @@ const OurStats = () => {
             <Heading title='Our CoursePlus Stats'></Heading>
             <div className="" >
                 {/* Left side - Stats */}
-                <div className="md:flex justify-between items-center gap-6">
+                <div className="md:flex justify-between items-center gap-6 md:space-y-0 space-y-6">
                     <div className="bg-white shadow-lg p-6 rounded-lg w-full">
                         <h2 className="text-xl font-semibold mb-2">Total Users</h2>
                         <p className="text-2xl font-bold">{info.userCount}</p>
@@ -36,7 +36,7 @@ const OurStats = () => {
                 </div>
                 <div>
                     {/* our stats */}
-                    <StatChart></StatChart>
+                    {/* <StatChart></StatChart> */}
                 </div>
             </div>
         </div>

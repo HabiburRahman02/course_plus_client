@@ -19,15 +19,15 @@ const StatsSection = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-20 px-8 md:p-0">
                 {/* Left side - Stats */}
                 <div className="w-full md:w-1/2 lg:w-1/2 mb-8 text-center">
-                    <div className="bg-white shadow-lg p-6 rounded-lg">
+                    <div className="bg-white shadow-lg p-6 rounded-lg dark:text-white dark:bg-gray-800">
                         <h2 className="text-xl font-semibold mb-2">Total Users</h2>
                         <p className="text-2xl font-bold">{info.userCount}</p>
                     </div>
-                    <div className="bg-white shadow-lg p-6 rounded-lg mt-6">
+                    <div className="bg-white shadow-lg p-6 rounded-lg mt-6 dark:text-white dark:bg-gray-800">
                         <h2 className="text-xl font-semibold mb-2">Total Course</h2>
                         <p className="text-2xl font-bold">{info.courseCount}</p>
                     </div>
-                    <div className="bg-white shadow-lg p-6 rounded-lg mt-6">
+                    <div className="bg-white shadow-lg p-6 rounded-lg mt-6 dark:text-white dark:bg-gray-800">
                         <h2 className="text-xl font-semibold mb-2">Total Student Enrollments</h2>
                         <p className="text-2xl font-bold">{info.enrollCount}</p>
                     </div>

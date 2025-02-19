@@ -9,16 +9,16 @@ import WhyChooseUs from "./WhyChooseUs";
 
 const Home = () => {
     return (
-        <div>
+        <div className="dark:text-white dark:bg-gray-700">
             <Banner></Banner>
             <div className="max-w-[1300px] mx-auto">
                 <Partners />
                 <PopularCourses />
-                <Feedback />
-                <StatsSection />
                 <BecomeInstructorSection />
+                <StatsSection />
                 <Faq />
                 <WhyChooseUs />
+                <Feedback />
             </div>
 
         </div>

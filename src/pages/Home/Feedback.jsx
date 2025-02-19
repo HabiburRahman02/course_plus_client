@@ -51,7 +51,7 @@ const Feedback = () => {
                     {
                         feedback.map(feed =>
                             <SwiperSlide key={feed._id}>
-                                <div className="card  bg-white hover:scale-105 duration-500 h-full rounded-none shadow-lg border">
+                                <div className="card dark:bg-gray-800 dark:text-white bg-white hover:scale-105 duration-500 h-full rounded-none shadow-lg border">
                                     <figure>
                                         <img
                                             src={feed.image}
